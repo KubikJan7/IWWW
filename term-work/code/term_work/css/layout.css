@@ -1,0 +1,272 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #F5F5F5;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #4a4a4a;
+}
+
+header {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #A7402F;
+    height: 50px;
+}
+
+header nav a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: unset;
+    font-size: 18px;
+    position: relative;
+    right:100px;
+}
+
+header nav a:hover {
+    background-color: #B7A28D;
+    color:black;
+}
+#header-web-title a{
+    color: white;
+    font-size: 30px;
+    text-decoration: unset;
+    padding: 6px 16px;
+    position:relative;
+    left:100px;
+}
+
+#header-logo {
+    width: 25px;
+    padding: 0px 10px;
+}
+
+
+#search-container input {
+    width: 500px;
+    height: 35px;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    font-size: 17px;
+    float:left;
+}
+#search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    width: 47px;
+    height:47px;
+}
+#search-container button:hover {
+    background: #B7A28D;
+}
+
+#hero {
+    height: 35%;
+    background: url("./../images/main_screen.jpg") no-repeat center;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+}
+
+#genres {
+    height: 5%;
+    width: 100%;
+    background-color: #18130F;
+    background-size: cover;
+    position: relative;
+    bottom:48px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    color: white;
+}
+
+#categories-menu a{
+    float: bottom;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: unset;
+    font-size: 20px;
+    position:relative;
+    left:100px;
+}
+#categories-menu a:hover{
+    color: #B7A28D;
+}
+
+.full-width-wrapper, main {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    text-align: left;
+    width: 280px;
+    min-height: 100px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.card > img {
+    height: 100px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #4a4a4a;
+}
+
+.card > p {
+    text-align: justify;
+}
+
+.card > a {
+    width: 100%;
+    background-color: #453328;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: 1s;
+    border: 1px solid rgb(60, 64, 60);
+}
+
+.card > a:hover {
+    background-color: rgba(204, 208, 204, 0.91);
+    color: #333333;
+}
+
+footer {
+    margin-top: 20px;
+    min-height:200px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #453328;
+    color: #f2f2f2;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+#footer-newsletter input[type="submit"] {
+    width: 100%;
+}
+
+.top-space {
+    height: 80px;
+}
+
+.button {
+    text-align: center;
+    display: block;
+    width: 120px;
+    padding: 10px 15px;
+    border: 1px solid #4a4a4a;
+    background-color: #4a4a4a;
+    color: white;
+    transition: 1s;
+    margin: 10px;
+}
+
+.action-button {
+    width: 20px;
+    text-align: center;
+    display: block;
+    padding: 5px;
+    border: 1px solid #4a4a4a;
+    background-color: #4a4a4a;
+    color: white;
+    transition: 1s;
+    margin: 5px;
+}
+
+
+.action-button:hover, .button:hover {
+    background-color: white;
+    color: black;
+}
+
+#login-screen {
+    width: 300px;
+    margin: auto;
+}
+
+.centered-600px {
+    width: 600px;
+    margin: auto;
+}
+
+.article-text {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #c6c6c6;
+    color: white;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+}
+
+.left {
+    width: 25%;
+}
+
+.right {
+    width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: block;
+    clear: both;
+}

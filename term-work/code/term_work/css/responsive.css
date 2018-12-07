@@ -1,0 +1,47 @@
+@media (max-width: 960px) {
+
+    header {
+        justify-content: space-between;
+        height: auto;
+    }
+
+    #header-logo, header nav a {
+        display: none;
+    }
+
+    .nav-responsive a {
+        display: block;
+    }
+
+    #header-web-title {
+        display: block;
+        align-self: flex-start;
+    }
+
+    #nav-hamburger-icon {
+        width: 60px;
+        display: block;
+        align-self: flex-start;
+    }
+
+    .card {
+        width: 100%;
+        text-align: center;
+    }
+
+    #hero {
+        width: 100%;
+        height: auto;
+    }
+
+    .full-width-wrapper, main {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    footer section {
+        width: 100%;
+        margin: 25px;
+    }
+}
+
