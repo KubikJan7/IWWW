@@ -89,12 +89,11 @@ header nav a:hover {
 }
 
 #genres {
+    clear:both;
     height: 5%;
     width: 100%;
     background-color: #18130F;
     background-size: cover;
-    position: relative;
-    bottom:48px;
     text-align: left;
     display: flex;
     align-items: center;
@@ -112,6 +111,7 @@ header nav a:hover {
     font-size: 20px;
     position:relative;
     left:100px;
+    clear:both;
 }
 #categories-menu a:hover{
     color: #B7A28D;
@@ -181,15 +181,6 @@ footer a {
     color: white;
     text-decoration: underline;
 }
-
-#footer-newsletter input[type="submit"] {
-    width: 100%;
-}
-
-.top-space {
-    height: 80px;
-}
-
 .button {
     text-align: center;
     display: block;
@@ -201,7 +192,6 @@ footer a {
     transition: 1s;
     margin: 10px;
 }
-
 .action-button {
     width: 20px;
     text-align: center;
@@ -213,8 +203,6 @@ footer a {
     transition: 1s;
     margin: 5px;
 }
-
-
 .action-button:hover, .button:hover {
     background-color: white;
     color: black;
