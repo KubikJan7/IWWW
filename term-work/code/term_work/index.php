@@ -22,6 +22,7 @@ include "./config.php"; //load configurations
     <nav id="nav">
         <a href="<?= BASE_URL . "?page=account" ?>">Účet</a>
         <a href="<?= BASE_URL . "?page=cart" ?>"><i class="fa fa-shopping-cart"></i> Košík</a>
+        <a href="<?= BASE_URL . "?page=contact" ?>">Kontakty</a>
     </nav>
 </header>
 
@@ -45,69 +46,25 @@ include "./config.php"; //load configurations
 </section>
 
 <main>
-
-    <div class="center-wrapper">
-        <div>
-            <div class="flex-wrap">
-                <div class="card">
-                    <img src="./images/books/atlas_shrugged.jpg"/>
-                    <h2>Atlas Shrugged</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam sit amet magna in magna gravida
-                        vehicula. Maecenas aliquet accumsan leo.</p>
-                </div>
-
-                <div class="card">
-                    <img src="./images/books/lotr_red_edition.jpg"/>
-                    <h2>The Lord Of The Rings</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam sit amet magna in magna gravida
-                        vehicula. Maecenas aliquet accumsan leo.</p>
-                </div>
-
-
-                <div class="card">
-                    <img src="./images/books/steve_jobs.jpg"/>
-                    <h2>Steve Jobs</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam sit amet magna in magna gravida
-                        vehicula. Maecenas aliquet accumsan leo.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-<footer>
-    <div class="full-width-wrapper">
-
-        <div class="flex-wrap">
-            <section>
-                <h4>Contact</h4>
-                <address>
-                    Honzovo, s. r. o.<br/>
-                    2354 Pacific Coast Highway<br/>
-                    USA<br/>
-                    +420 123 456<br/>
-                    Email: <a href="mailto:honza@iwww.cz">honza@iwww.cz</a><br/>
-                </address>
-            </section>
-        </div>
-        <section>
-            <p>Copyright
-                ©<?php echo date("Y"); ?>
-                Bookworm
-        </section>
-    </div>
-</footer>
-<main>
-
     <?php
     if (isset($_GET['page'])) {
         $file = "./page/" . $_GET["page"] . ".php";
         if (file_exists($file)) {
             include $file;
+            //header ('Location: ' . $file);
         }
+    } else {
+        include "./page/default.php";
     }
     ?>
-
 </main>
+<footer>
+    <div>
+        <p>Copyright
+            ©<?php echo date("Y"); ?>
+            Bookworm
+    </div>
+</footer>
 </body>
 </html>
 
