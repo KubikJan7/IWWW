@@ -36,14 +36,24 @@ include "./config.php"; //load configurations
 
 
 </section>
-<section id="genres">
-    <div id="categories-menu">
-        <a href="<?= BASE_URL ?>">Romány</a>
-        <a href="<?= BASE_URL ?>">Scifi a Fantasy</a>
-        <a href="<?= BASE_URL ?>">Naučné</a>
-        <a href="<?= BASE_URL ?>">Odborné</a>
-    </div>
-</section>
+<div id="categories-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="<?= BASE_URL ?>">Romány</a>
+    <a href="<?= BASE_URL ?>">Scifi </a>
+    <a href="<?= BASE_URL ?>">Naučné</a>
+    <a href="<?= BASE_URL ?>">Odborné</a>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Kategorie</span>
+
+<script>
+    function openNav() {
+        document.getElementById("categories-menu").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("categories-menu").style.width = "0";
+    }
+</script>
 
 <main>
     <?php

@@ -87,34 +87,36 @@ header nav a:hover {
     color: white;
 
 }
-
-#genres {
-    clear:both;
-    height: 5%;
-    width: 100%;
-    background-color: #18130F;
-    background-size: cover;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    color: white;
+#categories-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
-
 #categories-menu a{
-    float: bottom;
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: unset;
-    font-size: 20px;
-    position:relative;
-    left:100px;
-    clear:both;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 #categories-menu a:hover{
     color: #B7A28D;
+}
+
+#categories-menu .closebtn{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 .full-width-wrapper, main {
     width: 960px;
