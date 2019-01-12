@@ -33,25 +33,33 @@ include "./config.php"; //load configurations
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
-
-
+    <span id="category-btn" onclick="openNav()">&#9776; Kategorie</span>
 </section>
-<div id="categories-menu">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="<?= BASE_URL ?>">Romány</a>
+<div id="category-menu">
+    <a href="<?= BASE_URL ?>">Fantasy</a>
     <a href="<?= BASE_URL ?>">Scifi </a>
-    <a href="<?= BASE_URL ?>">Naučné</a>
+    <a href="<?= BASE_URL ?>">Horror</a>
+    <a href="<?= BASE_URL ?>">Biografie</a>
     <a href="<?= BASE_URL ?>">Odborné</a>
 </div>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Kategorie</span>
 
 <script>
+    var x = 0;
+
     function openNav() {
-        document.getElementById("categories-menu").style.width = "250px";
+        document.getElementById("category-menu").style.height = "90%";
+        document.getElementById("category-menu").style.paddingTop = "30px";
+        if (x === 1) {
+            closeNav();
+        } else {
+            x = 1;
+        }
     }
 
     function closeNav() {
-        document.getElementById("categories-menu").style.width = "0";
+        document.getElementById("category-menu").style.height = "0";
+        document.getElementById("category-menu").style.paddingTop = "0";
+        x = 0;
     }
 </script>
 
