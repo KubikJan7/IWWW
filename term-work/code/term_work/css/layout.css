@@ -76,7 +76,6 @@ header nav a:hover {
 #search-container button:hover {
     background: #A2C523;
 }
-
 #hero {
     height: 11%;
     background:#cccccc;
@@ -126,6 +125,7 @@ header nav a:hover {
     background:#666666;
 }
 #hero span {
+    transition: 0.5s;
     display: inline-block;
     padding: 16px 16px;
 }
@@ -190,7 +190,19 @@ header nav a:hover {
     background-color: rgba(204, 208, 204, 0.91);
     color: #333333;
 }
-
+#cart-section{
+    position:relative;
+    justify-content: center;
+    text-align: center;
+    right:125px;
+    top:50px;
+}
+#big-cart-img{
+    font-size: 250px;
+    color: #cccccc;
+    position:relative;
+    right:20px;
+}
 footer {
     position: fixed;
     left: 0;
@@ -206,16 +218,16 @@ footer {
 
 .button {
     text-align: center;
-    display: block;
-    width: 120px;
-    padding: 10px 15px;
-    border: 1px solid #4a4a4a;
-    background-color: #4a4a4a;
+    width: 180px;
+    padding: 14px 16px;
+    background-color: #A2C523;
     color: white;
-    transition: 1s;
-    margin: 10px;
+    transition: 0.5s;
+    text-decoration: unset;
+    font-size: 18px;
+    position:relative;
+    top:50px;
 }
-
 .action-button {
     width: 20px;
     text-align: center;
@@ -228,9 +240,9 @@ footer {
     margin: 5px;
 }
 
-.action-button:hover, .button:hover {
-    background-color: white;
-    color: black;
+.action-button:hover,.button:hover{
+    background-color: #666666;
+    color: #A2C523;
 }
 
 #login-screen {
