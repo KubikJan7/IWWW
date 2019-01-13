@@ -1,5 +1,6 @@
 <?php
 include "./config.php"; //load configurations
+$cartEmpty = true;
 ?>
 <!DOCTYPE html>
 <html lang="en">
