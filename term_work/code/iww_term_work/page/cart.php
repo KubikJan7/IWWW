@@ -18,3 +18,4 @@ if ($cartEmpty == false) {
     <?php
 }
 ?>
+

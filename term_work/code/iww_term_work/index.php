@@ -8,7 +8,6 @@ $cartEmpty = true;
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,21 +21,21 @@ $cartEmpty = true;
 
     <nav id="nav">
         <a href="<?= BASE_URL . "?page=account" ?>">Účet</a>
-        <a href="<?= BASE_URL . "?page=cart" ?>"><i class="fa fa-shopping-cart"></i> Košík</a>
         <a href="<?= BASE_URL . "?page=contact" ?>">Kontakty</a>
     </nav>
 </header>
 
 <section id="hero">
+    <span id="category-btn" onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Kategorie</span>
     <div id="search-container">
         <form action="/action_page.php">
             <input type="text" placeholder="Zadejte název knihy, autora..." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
-    <span id="category-btn" onclick="openNav()">&#9776; Kategorie</span>
+    <a href="<?= BASE_URL . "?page=cart" ?>"><i class="fa fa-shopping-cart"></i> Košík</a>
 </section>
-<div id="category-menu">
+<div id="category-menu" onmouseover="openNav()" onmouseleave="closeNav()">
     <a href="<?= BASE_URL ?>">Fantasy</a>
     <a href="<?= BASE_URL ?>">Scifi </a>
     <a href="<?= BASE_URL ?>">Horror</a>
@@ -45,22 +44,14 @@ $cartEmpty = true;
 </div>
 
 <script>
-    var x = 0;
-
     function openNav() {
-        document.getElementById("category-menu").style.height = "90%";
+        document.getElementById("category-menu").style.height = "100%";
         document.getElementById("category-menu").style.paddingTop = "30px";
-        if (x === 1) {
-            closeNav();
-        } else {
-            x = 1;
-        }
     }
 
     function closeNav() {
         document.getElementById("category-menu").style.height = "0";
         document.getElementById("category-menu").style.paddingTop = "0";
-        x = 0;
     }
 </script>
 
@@ -86,4 +77,5 @@ $cartEmpty = true;
 </footer>
 </body>
 </html>
+
 

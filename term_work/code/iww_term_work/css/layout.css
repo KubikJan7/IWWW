@@ -13,7 +13,7 @@ body {
 header {
     top: 0;
     width: 100%;
-    position: fixed;
+    position: relative;
     z-index: 1;
     display: flex;
     align-items: center;
@@ -54,41 +54,52 @@ header nav a:hover {
 
 #search-container input {
     width: 500px;
-    height: 35px;
+    height: 20px;
     padding: 6px;
     border: none;
-    margin-top: 50px;
-    font-size: 17px;
-    float: left;
+    font-size: 15px;
 }
 
 #search-container button {
     float: right;
     padding: 6px 10px;
-    margin-top: 50px;
     background: #ddd;
     font-size: 17px;
     border: none;
-    width: 47px;
-    height: 47px;
+    width: 33px;
+    height: 33px;
 }
 
 #search-container button:hover {
     background: #A2C523;
 }
 #hero {
-    height: 11%;
-    background:#cccccc;
+    height: 50px;
+    background: #edf0db;
     background-size: cover;
     position: relative;
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     color: white;
-
 }
 
+#hero span:hover{
+    color: #F49268;
+}
+#hero span {
+    transition: 0.5s;
+    display: inline-block;
+    padding: 16px 16px;
+}
+
+#hero a{
+    font-size: 16px;
+    position: relative;
+    color: black;
+    right:150px;
+}
 #category-menu {
     height: 0;
     width: 149px;
@@ -98,6 +109,7 @@ header nav a:hover {
     background-color: #333333;
     overflow: hidden;
     transition: 0.5s;
+    z-index:1;
 }
 
 #category-menu a {
@@ -113,37 +125,19 @@ header nav a:hover {
     color: #A2C523;
 }
 
-#category-menu .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-#hero span:hover{
-    color: #A2C523;
-    background:#666666;
-}
-#hero span {
-    transition: 0.5s;
-    display: inline-block;
-    padding: 16px 16px;
-}
 #category-btn {
-    font-size: 22px;
+    font-size: 16px;
     cursor: pointer;
-    position: absolute;
-    left: 180px;
+    position: relative;
     color: black;
-    margin-top:25px;
+    left: 150px;
+    text-align: center;
 }
 
 .full-width-wrapper, main {
     width: 1400px;
     margin: 0 auto;
     align-items: center;
-    position:absolute;
-    right:150px;
 }
 
 .flex-wrap {
@@ -214,6 +208,7 @@ footer {
     padding-left: 100px;
     padding-bottom: 10px;
     width: 100%;
+    z-index:2;
 }
 
 .button {
