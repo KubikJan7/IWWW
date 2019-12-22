@@ -19,9 +19,9 @@ Požadavky na funkčnost aplikace:
 - [ ] CSS formátování – nepoužívat CSS framework
 - [ ] U veškerého převzatého kódu uveďte zdroj
 - [ ] Veškerý použitý kód si musíte obhájit (i ten, který jste nepsali)
-- [ ] Minimálně jedna relace M:N
+- [x] Minimálně jedna relace M:N
 
 ## Doporučení:
-- [ ] Alespoň 7 databázových tabulek (minimálně jedna M:N)
+- [x] Alespoň 7 databázových tabulek (minimálně jedna M:N)
 - [ ] Pro kreslení UML diagramů můžete využít online bezplatnou aplikaci draw.io
 
