@@ -1,4 +1,6 @@
 <?php
+ob_start();
+session_start();
 include "./config.php"; //load configurations
 $cartEmpty = true;
 ?>
@@ -20,8 +22,15 @@ $cartEmpty = true;
     </div>
 
     <nav id="nav">
-        <a href="<?= BASE_URL . "?page=account" ?>">Účet</a>
-        <a href="<?= BASE_URL . "?page=contact" ?>">Kontakty</a>
+        <?php if (!empty($_SESSION["user_id"])) { ?>
+            <a href="<?= BASE_URL . "?page=account" ?>"><i class="fa fa-user"></i> Přihlášen
+                jako <?php echo($_SESSION["username"]) ?></a>
+            <a href="<?= BASE_URL . "?page=logout" ?>"><i class="fa fa-times"></i> Odhlásit</a>
+        <?php } else { ?>
+            <a href="<?= BASE_URL . "?page=login" ?>"><i class="fa fa-user"></i> Přihlášení</a>
+            <a href="<?= BASE_URL . "?page=registration" ?>"><i class="fa fa-handshake-o"></i> Registrace</a>
+        <?php } ?>
+        <a href="<?= BASE_URL . "?page=contact" ?>"><i class="fa fa-map-marker"></i> Kontakt</a>
     </nav>
 </header>
 

@@ -96,10 +96,16 @@ header nav a:hover {
 
 #hero a{
     font-size: 16px;
+    text-decoration: unset;
     position: relative;
     color: black;
     right:150px;
 }
+
+#hero a:hover{
+    color: #F49268;
+}
+
 #category-menu {
     height: 0;
     width: 149px;
