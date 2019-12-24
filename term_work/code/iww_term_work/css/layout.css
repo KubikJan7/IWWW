@@ -52,9 +52,9 @@ header nav a:hover {
 }
 
 
-#search-container input {
+#search-container input[type=search] {
     width: 500px;
-    height: 20px;
+    height: 33px;
     padding: 6px;
     border: none;
     font-size: 15px;
@@ -66,13 +66,14 @@ header nav a:hover {
     background: #ddd;
     font-size: 17px;
     border: none;
-    width: 33px;
+    width: 35px;
     height: 33px;
 }
 
 #search-container button:hover {
-    background: #A2C523;
+    background: #F49268;
 }
+
 #hero {
     height: 50px;
     background: #edf0db;
@@ -85,24 +86,25 @@ header nav a:hover {
     color: white;
 }
 
-#hero span:hover{
+#hero span:hover {
     color: #F49268;
 }
+
 #hero span {
     transition: 0.5s;
     display: inline-block;
     padding: 16px 16px;
 }
 
-#hero a{
+#hero a {
     font-size: 16px;
     text-decoration: unset;
     position: relative;
     color: black;
-    right:150px;
+    right: 150px;
 }
 
-#hero a:hover{
+#hero a:hover {
     color: #F49268;
 }
 
@@ -115,7 +117,7 @@ header nav a:hover {
     background-color: #333333;
     overflow: hidden;
     transition: 0.5s;
-    z-index:1;
+    z-index: 1;
 }
 
 #category-menu a {
@@ -138,6 +140,31 @@ header nav a:hover {
     color: black;
     left: 150px;
     text-align: center;
+}
+
+input[type=email], input[type=tel], input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: white;
+}
+
+input[type=tel]:focus, input[type=email]:focus, input[type=text]:focus, input[type=password]:focus {
+    background-color: #F2FEDC;
+    outline: none;
+}
+
+input[type=submit] {
+    background-color: #F49268;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
 }
 
 .full-width-wrapper, main {
@@ -190,19 +217,22 @@ header nav a:hover {
     background-color: rgba(204, 208, 204, 0.91);
     color: #333333;
 }
-#cart-section{
-    position:relative;
+
+#cart-section {
+    position: relative;
     justify-content: center;
     text-align: center;
-    right:125px;
-    top:50px;
+    right: 125px;
+    top: 50px;
 }
-#big-cart-img{
+
+#big-cart-img {
     font-size: 250px;
     color: #cccccc;
-    position:relative;
-    right:20px;
+    position: relative;
+    right: 20px;
 }
+
 footer {
     position: fixed;
     left: 0;
@@ -214,7 +244,7 @@ footer {
     padding-left: 100px;
     padding-bottom: 10px;
     width: 100%;
-    z-index:2;
+    z-index: 2;
 }
 
 .button {
@@ -226,9 +256,10 @@ footer {
     transition: 0.5s;
     text-decoration: unset;
     font-size: 18px;
-    position:relative;
-    top:50px;
+    position: relative;
+    top: 50px;
 }
+
 .action-button {
     width: 20px;
     text-align: center;
@@ -241,7 +272,7 @@ footer {
     margin: 5px;
 }
 
-.action-button:hover,.button:hover{
+.action-button:hover, .button:hover {
     background-color: #666666;
     color: #A2C523;
 }
@@ -295,4 +326,9 @@ th, td {
     content: "";
     display: block;
     clear: both;
+}
+
+p a{
+    color: #F49268;
+    text-decoration: unset;
 }

@@ -38,7 +38,7 @@ $cartEmpty = true;
     <span id="category-btn" onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Kategorie</span>
     <div id="search-container">
         <form action="/action_page.php">
-            <input type="text" placeholder="Zadejte název knihy, autora..." name="search">
+            <input type="search" placeholder="Zadejte název knihy, autora..." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>

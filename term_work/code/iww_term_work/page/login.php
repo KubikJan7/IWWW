@@ -29,11 +29,16 @@ if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPasswor
 
 ?>
 
-
+<h1>Přihlášení</h1>
+<br>
 <form method="post">
 
-    <input type="email" name="loginMail" placeholder="Insert your email">
-    <input type="password" name="loginPassword" placeholder="Password">
+    <label for="email"><b>E-mailová adresa</b></label>
+    <input type="email" name="loginMail">
+    <label for="email"><b>Heslo</b></label>
+    <input type="password" name="loginPassword">
     <input type="submit" value="Log in">
 
 </form>
+<p id="sign_in">Ještě nemáte vytvořený účet? <a href="<?= BASE_URL . "?page=registration" ?>">Registrace</a>.</p>
+<br>
