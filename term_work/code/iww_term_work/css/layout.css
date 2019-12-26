@@ -378,10 +378,16 @@ p a {
 }
 
 .color-red {
+    display: inline;
     color: #FF4652;
 }
 
 .color-orange {
     display: inline;
     color: #F49268;
+}
+
+.color-green {
+    display: inline;
+    color: #26A941;
 }

@@ -24,7 +24,7 @@ $cartEmpty = true;
     <nav id="nav">
         <?php if (!empty($_SESSION["user_id"])) { ?>
             <a href="<?= BASE_URL . "?page=account" ?>"><i class="fa fa-user"></i> Přihlášen
-                jako <?php echo($_SESSION["username"]) ?></a>
+                jako <b><?php echo($_SESSION["first_name"] . " " . $_SESSION["last_name"]) ?></b></a>
             <a href="<?= BASE_URL . "?page=logout" ?>"><i class="fa fa-times"></i> Odhlásit</a>
         <?php } else { ?>
             <a href="<?= BASE_URL . "?page=login" ?>"><i class="fa fa-user"></i> Přihlášení</a>
