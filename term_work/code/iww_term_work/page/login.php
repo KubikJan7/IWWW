@@ -44,5 +44,5 @@ if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPasswor
         </div>
         <input type="submit" value="Přihlásit">
     </form>
-    <p id="sign_in">Ještě nemáte vytvořený účet? <a href="<?= BASE_URL . "?page=registration" ?>">Registrace</a>.</p>
+    <p>Ještě nemáte vytvořený účet? <a href="<?= BASE_URL . "?page=registration" ?>">Registrace</a>.</p>
 </div>

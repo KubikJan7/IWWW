@@ -63,7 +63,7 @@ header nav a:hover {
 #search-container button {
     float: right;
     padding: 6px 10px;
-    background: #ddd;
+    background: #F5F5F5;
     font-size: 17px;
     border: none;
     width: 35px;
@@ -147,9 +147,9 @@ label {
 }
 
 input[type=email], input[type=tel], input[type=text], input[type=password] {
-    width: 60%;
+    width: 65%;
     padding: 15px;
-    margin: 5px 70px 22px 20px;
+    margin: 5px 0 22px 0;
     display: inline-flex;
     border: none;
     background: white;
@@ -170,10 +170,10 @@ input[type=submit] {
     width: 30%;
 }
 
-div select{
-    width: 64.5%;
+div select {
+    width: 69.5%;
     padding: 15px;
-    margin: 5px 70px 22px 20px;
+    margin: 5px 0 22px 0;
     display: inline-flex;
     border: none;
     background: white;
@@ -182,11 +182,12 @@ div select{
 #form-contents {
     position: relative;
     display: flex;
+    justify-content: space-between;
 }
 
 #form-container {
     display: block;
-    width: 50%;
+    width: 45%;
 }
 
 #form-line {
@@ -194,7 +195,7 @@ div select{
     justify-content: space-between;
 }
 
-#form-line-blank{
+#form-line-blank {
     padding: 15px;
     margin: 5px 70px 22px 20px;
     display: inline-flex;
@@ -320,14 +321,14 @@ footer {
     margin: auto;
 }
 
-.centered-80{
-    width:90%;
-    margin:auto;
+.centered-80 {
+    width: 90%;
+    margin: auto;
 }
 
-.centered-50{
-    width:50%;
-    margin:auto;
+.centered-50 {
+    width: 50%;
+    margin: auto;
 }
 
 .article-text {
@@ -374,4 +375,13 @@ th, td {
 p a {
     color: #F49268;
     text-decoration: unset;
+}
+
+.color-red {
+    color: #FF4652;
+}
+
+.color-orange {
+    display: inline;
+    color: #F49268;
 }

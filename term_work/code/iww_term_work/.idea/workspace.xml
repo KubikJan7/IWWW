@@ -60,7 +60,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../2018/login" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../2019/first_web_page" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -97,6 +97,7 @@
       <workItem from="1577091391917" duration="7429000" />
       <workItem from="1577118408935" duration="19075000" />
       <workItem from="1577317561864" duration="12556000" />
+      <workItem from="1577367074236" duration="6570000" />
     </task>
     <servers />
   </component>
