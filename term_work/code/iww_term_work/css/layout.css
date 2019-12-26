@@ -142,11 +142,15 @@ header nav a:hover {
     text-align: center;
 }
 
+label {
+    padding: 15px 0;
+}
+
 input[type=email], input[type=tel], input[type=text], input[type=password] {
-    width: 100%;
+    width: 60%;
     padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
+    margin: 5px 70px 22px 20px;
+    display: inline-flex;
     border: none;
     background: white;
 }
@@ -163,8 +167,37 @@ input[type=submit] {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
+    width: 30%;
+}
+
+div select{
+    width: 64.5%;
+    padding: 15px;
+    margin: 5px 70px 22px 20px;
+    display: inline-flex;
+    border: none;
+    background: white;
+}
+
+#form-contents {
+    position: relative;
+    display: flex;
+}
+
+#form-container {
+    display: block;
+    width: 50%;
+}
+
+#form-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+#form-line-blank{
+    padding: 15px;
+    margin: 5px 70px 22px 20px;
+    display: inline-flex;
 }
 
 .full-width-wrapper, main {
@@ -287,6 +320,16 @@ footer {
     margin: auto;
 }
 
+.centered-80{
+    width:90%;
+    margin:auto;
+}
+
+.centered-50{
+    width:50%;
+    margin:auto;
+}
+
 .article-text {
     padding: 20px;
     margin-top: 20px;
@@ -328,7 +371,7 @@ th, td {
     clear: both;
 }
 
-p a{
+p a {
     color: #F49268;
     text-decoration: unset;
 }
