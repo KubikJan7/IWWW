@@ -22,7 +22,9 @@ $cartEmpty = true;
     </div>
 
     <nav id="nav">
-        <?php if (!empty($_SESSION["user_id"])) { ?>
+        <?php if ($_SESSION["user_id"]==0) { ?>
+            <a href="<?= BASE_URL . "?page=user_management" ?>"><i class="fa fa-user"></i> Správa uživatelů</a>
+        <?php } else if (!empty($_SESSION["user_id"])) { ?>
             <a href="<?= BASE_URL . "?page=account" ?>"><i class="fa fa-user"></i> Přihlášen
                 jako <b><?php echo($_SESSION["first_name"] . " " . $_SESSION["last_name"]) ?></b></a>
             <a href="<?= BASE_URL . "?page=logout" ?>"><i class="fa fa-times"></i> Odhlásit</a>
