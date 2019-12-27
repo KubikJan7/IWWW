@@ -36,11 +36,16 @@ if (isset($_POST['registration'])) {
                 $stmt->bindParam(':user_id', $user_id);
                 $stmt->execute();
 
-                $message = "Registrace proběhla úspěšně.";
+                $login_url = BASE_URL. "?page=login";
+                $message = "Registrace proběhla úspěšně. Nyní se můžete <a id='link' href =$login_url>přihlásit</a>.";
                 $success = true;
             } catch (PDOException $e) {
                 if ($e->getCode() == 23000) //checks it it's code of duplicity
-                    $message = "Uživatel s touto e-mailovou adresou je již registrován!";
+                {
+                    $message = "Uživatel s touto e-mailovou adresou je již registrovaný!";
+                    /*$stmt = $conn->prepare("ALTER TABLE user AUTO_INCREMENT = user AUTO_INCREMENT - 1");
+                    $stmt->execute();*/
+                }
                 else
                     $message = "Při registraci došlo k potížím, zkuste to prosím znovu!";
             }
@@ -141,6 +146,6 @@ if (isset($_POST['registration'])) {
             <input type="submit" name="registration" value="Registrovat">
 
         </form>
-        <p>Již jste se dříve zaregistrovali? <a href="<?= BASE_URL . "?page=login" ?>">Přihlášení</a>.</p>
+        <p>Zaregistrovali jste se již dříve? <a href="<?= BASE_URL . "?page=login" ?>">Přihlášení</a>.</p>
         <br><br>
 </div>

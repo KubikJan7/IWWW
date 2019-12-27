@@ -389,5 +389,10 @@ p a {
 
 .color-green {
     display: inline;
-    color: #26A941;
+    color: #A2C523;
+}
+
+#link{
+    color: #F49268;
+    text-decoration: unset;
 }
