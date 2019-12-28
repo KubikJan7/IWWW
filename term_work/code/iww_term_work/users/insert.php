@@ -1,60 +1,52 @@
 <?php
-$message = "";
-$success = false;
-if (isset($_POST['registration'])) {
-    if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_repeat'])
-        && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['street'])
-        && !empty($_POST['zip_code']) && !empty($_POST['city']) && !empty($_POST['phone_number'])) {
+$errorFeedbacks = array();
+$successFeedback = "";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //todo more validation rules
+    if (empty($_POST["username"])) {
+        $feedbackMessage = "username is required";
+        array_push($errorFeedbacks, $feedbackMessage);
+    }
 
-        if ($_POST["password"] != $_POST["password_repeat"])
-            $message = "Zadaná hesla se neshodují!";
-        else
-            try {
-                $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-                // set the PDO error mode to exception
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if (empty($_POST["password"])) {
+        $feedbackMessage = "password is required";
+        array_push($errorFeedbacks, $feedbackMessage);
+    }
 
-                $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');  //hash of the user password
+    if (empty($errorFeedbacks)) {
+        //success
+        $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                // prepare sql and bind parameters
-                $stmt = $conn->prepare("INSERT INTO user (first_name, last_name, password, email, phone_number, role_id) 
-            VALUES (:first_name, :last_name, :password, :email, :phone_number, 2)");
-                $stmt->bindParam(':first_name', $_POST["first_name"]);
-                $stmt->bindParam(':last_name', $_POST["last_name"]);
-                $stmt->bindParam(':password', $hashedPassword);
-                $stmt->bindParam(':email', $_POST["email"]);
-                $stmt->bindParam(':phone_number', $_POST["phone_number"]);
-                $stmt->execute();
-                $user_id = $conn->lastInsertId();
+        $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');
 
-                $stmt = $conn->prepare("INSERT INTO address (address, city, zip_code, country, user_id) 
-            VALUES (:address, :city, :zip_code, :country, :user_id)");
-                $stmt->bindParam(':address', $_POST["street"]);
-                $stmt->bindParam(':city', $_POST["city"]);
-                $stmt->bindParam(':zip_code', $_POST["zip_code"]);
-                $stmt->bindParam(':country', $_POST["country"]);
-                $stmt->bindParam(':user_id', $user_id);
-                $stmt->execute();
+        $stmt = $conn->prepare("INSERT INTO user (first_name, last_name, password, email, phone_number, role_id)
+    VALUES (:first_name, :last_name, :password, :email, :phone_number, :role_id)");
+        $stmt->bindParam(':first_name', $_POST["first_name"]);
+        $stmt->bindParam(':last_name', $_POST["last_name"]);
+        $stmt->bindParam(':password', $hashedPassword);
+        $stmt->bindParam(':email', $_POST["email"]);
+        $stmt->bindParam(':phone_number', $_POST["phone_number"]);
+        $stmt->bindParam(':role_id', $_POST["role_id"]);
+        $stmt->execute();
+        $successFeedback = "Uživatel byl přidán.";
+    }
+}
 
-                $login_url = BASE_URL. "?page=login";
-                $message = "Registrace proběhla úspěšně. Nyní se můžete <a id='link' href =$login_url>přihlásit</a>.";
-                $success = true;
-            } catch (PDOException $e) {
-                if ($e->getCode() == 23000) //checks it it's code of duplicity
-                {
-                    $message = "Uživatel s touto e-mailovou adresou již existuje!";
-                    /*$stmt = $conn->prepare("ALTER TABLE user AUTO_INCREMENT = user AUTO_INCREMENT - 1");
-                    $stmt->execute();*/
-                }
-                else
-                    $message = "Při registraci došlo k potížím, zkuste to prosím znovu!";
-            }
-    } else
-        $message = "Všechna pole označená pomocí '*' je nutné vyplnit.";
+?>
 
+<?php
+if (!empty($errorFeedbacks)) {
+    echo "Form contains following errors:<br>";
+    foreach ($errorFeedbacks as $errorFeedback) {
+        echo $errorFeedback . "<br>";
+    }
+} else if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($successFeedback)) {
+    echo $successFeedback;
 }
 ?>
 
+<h1>Přidat uživatele</h1>
 <div class="centered-90">
     <br>
     <?php
@@ -143,7 +135,7 @@ if (isset($_POST['registration'])) {
                     </div>
                 </div>
             </div>
-            <input type="submit" name="registration" value="Registrovat">
+            <input type="submit" name="insert_user" value="Přidat uživatele">
 
         </form>
         <p>Zaregistrovali jste se již dříve? <a href="<?= BASE_URL . "?page=login" ?>">Přihlášení</a>.</p>

@@ -18,13 +18,15 @@ $cartEmpty = true;
 <body>
 
 <header>
-    <div id="header-web-title"><a href="<?= BASE_URL ?>"><img id="header-logo" src="./images/logo.png"/>Bookworm</a>
+    <div id="header-web-title"><a href="<?= BASE_URL ?>"><img id="header-logo" src="./images/logo_orange.png"/>Bookworm</a>
     </div>
 
     <nav id="nav">
-        <?php if ($_SESSION["user_id"]==0) { ?>
-            <a href="<?= BASE_URL . "?page=user_management" ?>"><i class="fa fa-user"></i> Správa uživatelů</a>
-        <?php } else if (!empty($_SESSION["user_id"])) { ?>
+
+        <?php if (!empty($_SESSION["user_id"])) { ?> <!-- Check if the user is logged in -->
+            <?php if ($_SESSION["role_id"] == 1) { ?> <!--Check if it's an admin -->
+                <a href="<?= BASE_URL . "?page=user_management" ?>"><i class="fa fa-user"></i> Správa uživatelů</a>
+            <?php } ?>
             <a href="<?= BASE_URL . "?page=account" ?>"><i class="fa fa-user"></i> Přihlášen
                 jako <b><?php echo($_SESSION["first_name"] . " " . $_SESSION["last_name"]) ?></b></a>
             <a href="<?= BASE_URL . "?page=logout" ?>"><i class="fa fa-times"></i> Odhlásit</a>
@@ -76,6 +78,16 @@ $cartEmpty = true;
         }
     } else {
         include "./page/default.php";
+    }
+
+
+    if (isset($_GET["action"])) {
+        if ($_GET["action"] == "insert")
+            include "./users/insert.php";
+        if ($_GET["action"] == "delete")
+            include "./users/delete.php";
+        if ($_GET["action"] == "update")
+            include "./users/update.php";
     }
     ?>
 </main>

@@ -1,3 +1,6 @@
+main{
+    min-height: 100%;
+}
 body, html {
     height: 100%;
     margin: 0;
@@ -5,6 +8,7 @@ body, html {
 }
 
 body {
+    height: 100%;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #4a4a4a;
@@ -34,7 +38,8 @@ header nav a {
 }
 
 header nav a:hover {
-    color: #111;
+    color: #B75E38;
+    transition: 0.5s;
 }
 
 #header-web-title a {
@@ -47,8 +52,9 @@ header nav a:hover {
 }
 
 #header-logo {
+    color: #F49268;
     width: 25px;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 
@@ -72,6 +78,7 @@ header nav a:hover {
 
 #search-container button:hover {
     background: #F49268;
+    transition: 0.5s;
 }
 
 #hero {
@@ -88,6 +95,7 @@ header nav a:hover {
 
 #hero span:hover {
     color: #F49268;
+    transition: 0.5s;
 }
 
 #hero span {
@@ -102,6 +110,7 @@ header nav a:hover {
     position: relative;
     color: black;
     right: 150px;
+    transition: 0.5s;
 }
 
 #hero a:hover {
@@ -268,17 +277,18 @@ div select {
 }
 
 footer {
-    position: fixed;
     left: 0;
     bottom: 0;
-    height: 30px;
+    min-height: 40px;
     background-color: #333333;
     color: #f2f2f2;
     font-size: 14px;
-    padding-left: 100px;
-    padding-bottom: 10px;
     width: 100%;
-    z-index: 2;
+}
+
+footer div{
+    position: relative;
+    padding:1px 0 0 10px;
 }
 
 .button {

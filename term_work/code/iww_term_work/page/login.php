@@ -25,7 +25,6 @@ if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPasswor
         $_SESSION["email"] = $user["email"];
         $_SESSION["role_id"] = $user["role_id"];
         header('Location: ' . BASE_URL);
-        echo "<script>setTimeout(function(){window.top.location=\"index.php\"} ,1000);</script>";
     }
 
 } else if (!empty($_POST)) {

@@ -1,0 +1,1 @@
+<a href="<?= BASE_URL . "?page=users&action=insert" ?>">Přidat uživatele</a>
