@@ -169,7 +169,7 @@ input[type=tel]:focus, input[type=email]:focus, input[type=text]:focus, input[ty
     outline: none;
 }
 
-input[type=submit] {
+input[type=submit], #button_orange_border{
     background-color: #F49268;
     color: white;
     padding: 16px 20px;
@@ -177,6 +177,7 @@ input[type=submit] {
     border: none;
     cursor: pointer;
     width: 30%;
+    text-decoration: unset;
 }
 
 div select {
@@ -356,6 +357,7 @@ table, td, th {
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 th, td {

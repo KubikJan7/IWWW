@@ -36,17 +36,19 @@ if (isset($_POST['registration'])) {
                 $stmt->bindParam(':user_id', $user_id);
                 $stmt->execute();
 
-                $login_url = BASE_URL. "?page=login";
+                $login_url = BASE_URL . "?page=login";
                 $message = "Registrace proběhla úspěšně. Nyní se můžete <a id='link' href =$login_url>přihlásit</a>.";
                 $success = true;
             } catch (PDOException $e) {
-                if ($e->getCode() == 23000) //checks it it's code of duplicity
+                if ($e->getCode() == 23000) //checks if it's exception code of duplicity
                 {
                     $message = "Uživatel s touto e-mailovou adresou již existuje!";
-                    /*$stmt = $conn->prepare("ALTER TABLE user AUTO_INCREMENT = user AUTO_INCREMENT - 1");
-                    $stmt->execute();*/
-                }
-                else
+
+                    # after unsuccessful INSERT, the id sequence was still incremented
+                    $stmt = $conn->prepare("ALTER TABLE user AUTO_INCREMENT = 1"); // reset the sequence
+                    $stmt->execute();
+
+                } else
                     $message = "Při registraci došlo k potížím, zkuste to prosím znovu!";
             }
     } else

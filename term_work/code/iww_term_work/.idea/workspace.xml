@@ -52,6 +52,13 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="bookworm_database: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="role: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bookworm_database: schema" type="ebfa3cd1:MariaImplModel$Schema" />
         <item name="user: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
       <path>
@@ -74,7 +81,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../2019/first_web_page" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -115,6 +122,7 @@
       <workItem from="1577367074236" duration="24574000" />
       <workItem from="1577449479204" duration="3033000" />
       <workItem from="1577464825524" duration="22634000" />
+      <workItem from="1577527941205" duration="13849000" />
     </task>
     <servers />
   </component>

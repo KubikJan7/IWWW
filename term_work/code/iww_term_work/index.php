@@ -70,6 +70,9 @@ $cartEmpty = true;
 
 <main>
     <?php
+    if(isset($_GET["message"]))
+        echo $_GET["message"];
+
     if (isset($_GET['page'])) {
         $file = "./page/" . $_GET["page"] . ".php";
         if (file_exists($file)) {
@@ -80,7 +83,6 @@ $cartEmpty = true;
         include "./page/default.php";
     }
 
-
     if (isset($_GET["action"])) {
         if ($_GET["action"] == "insert")
             include "./users/insert.php";
@@ -88,7 +90,10 @@ $cartEmpty = true;
             include "./users/delete.php";
         if ($_GET["action"] == "update")
             include "./users/update.php";
+        if ($_GET["action"] == "delete_all")
+            include "./users/delete_all.php";
     }
+
     ?>
 </main>
 <footer>

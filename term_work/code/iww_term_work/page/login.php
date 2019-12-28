@@ -16,7 +16,7 @@ if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPasswor
     $stmt->execute();
     $user = $stmt->fetch();
     if (!$user) {
-        $message = "Uživatel s danou e-mailovou adresou nebyl nalezen!";
+        $message = "Uživatel s danou e-mailovou adresou nebyl nalezen, nebo bylo zadáno špatné heslo!";
     } else {
         echo "You are logged in. Your ID is: " . $user["id"];
         $_SESSION["user_id"] = $user["id"];
@@ -28,7 +28,7 @@ if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPasswor
     }
 
 } else if (!empty($_POST)) {
-    $message = "Prosím zadejte validní přihlašovací údaje.";
+    $message = "Prosím vyplňte obě pole.";
 }
 
 ?>
