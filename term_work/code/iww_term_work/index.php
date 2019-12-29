@@ -5,7 +5,7 @@ include "./config.php"; //load configurations
 $cartEmpty = true;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">

@@ -364,6 +364,12 @@ th, td {
     padding: 15px;
 }
 
+td a{
+    color: #F49268;
+    text-decoration: unset;
+    padding-right: 20px;
+}
+
 /* Create two unequal columns that floats next to each other */
 .column {
     float: left;
@@ -407,4 +413,8 @@ p a {
 #link{
     color: #F49268;
     text-decoration: unset;
+}
+
+#center{
+    text-align:  center;
 }

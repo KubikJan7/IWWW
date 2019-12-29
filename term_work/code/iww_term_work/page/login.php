@@ -4,6 +4,7 @@ if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPasswor
 
     //connect to database
     $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
+    $conn -> exec("set names utf8");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $hashedPassword = crypt($_POST["loginPassword"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk'); // hash the password from login
