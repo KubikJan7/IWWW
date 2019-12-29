@@ -2,7 +2,8 @@
 $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$data = $conn->query("SELECT *, name FROM user, role WHERE role.id = role_id")->fetchAll();
+$data = $conn->query("SELECT user.id, first_name, last_name, email, phone_number, name 
+                                FROM user, role WHERE role_id = role.id")->fetchAll();
 echo '<table>';
 
 echo '  

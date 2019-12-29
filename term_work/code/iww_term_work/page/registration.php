@@ -1,10 +1,19 @@
 <?php
 $message = "";
 $success = false;
+
 if (isset($_POST['registration'])) {
+
     if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_repeat'])
         && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['street'])
         && !empty($_POST['zip_code']) && !empty($_POST['city']) && !empty($_POST['phone_number'])) {
+
+        if (isset($_POST['deliveryChB'])) { // check if the checkbox for delivery details is checked
+            if (empty($_POST['street_sec']) || empty($_POST['zip_code_sec']) || empty($_POST['city_sec'])) {
+                $message = "Je nutné vyplnit dodací údaje.";
+                goto end;
+            }
+        }
 
         if ($_POST["password"] != $_POST["password_repeat"])
             $message = "Zadaná hesla se neshodují!";
@@ -18,7 +27,7 @@ if (isset($_POST['registration'])) {
 
                 // prepare sql and bind parameters
                 $stmt = $conn->prepare("INSERT INTO user (first_name, last_name, password, email, phone_number, role_id) 
-            VALUES (:first_name, :last_name, :password, :email, :phone_number, 2)");
+            VALUES (:first_name, :last_name, :password, :email, :phone_number, 3)");
                 $stmt->bindParam(':first_name', $_POST["first_name"]);
                 $stmt->bindParam(':last_name', $_POST["last_name"]);
                 $stmt->bindParam(':password', $hashedPassword);
@@ -27,14 +36,26 @@ if (isset($_POST['registration'])) {
                 $stmt->execute();
                 $user_id = $conn->lastInsertId();
 
-                $stmt = $conn->prepare("INSERT INTO address (address, city, zip_code, country, user_id) 
-            VALUES (:address, :city, :zip_code, :country, :user_id)");
+                $stmt = $conn->prepare("INSERT INTO address (address, city, zip_code, country, type, user_id) 
+            VALUES (:address, :city, :zip_code, :country, 'primary', :user_id)");
                 $stmt->bindParam(':address', $_POST["street"]);
                 $stmt->bindParam(':city', $_POST["city"]);
                 $stmt->bindParam(':zip_code', $_POST["zip_code"]);
                 $stmt->bindParam(':country', $_POST["country"]);
                 $stmt->bindParam(':user_id', $user_id);
                 $stmt->execute();
+
+                if (isset($_POST['deliveryChB'])) //check if the checkbox for delivery details is checked
+                {
+                    $stmt = $conn->prepare("INSERT INTO address (address, city, zip_code, country, type, user_id) 
+                VALUES (:address, :city, :zip_code, :country, 'secondary', :user_id)");
+                    $stmt->bindParam(':address', $_POST["street_sec"]);
+                    $stmt->bindParam(':city', $_POST["city_sec"]);
+                    $stmt->bindParam(':zip_code', $_POST["zip_code_sec"]);
+                    $stmt->bindParam(':country', $_POST["country_sec"]);
+                    $stmt->bindParam(':user_id', $user_id);
+                    $stmt->execute();
+                }
 
                 $login_url = BASE_URL . "?page=login";
                 $message = "Registrace proběhla úspěšně. Nyní se můžete <a id='link' href =$login_url>přihlásit</a>.";
@@ -54,6 +75,7 @@ if (isset($_POST['registration'])) {
     } else
         $message = "Všechna pole označená pomocí '*' je nutné vyplnit.";
 
+    end:
 }
 ?>
 
@@ -145,9 +167,71 @@ if (isset($_POST['registration'])) {
                     </div>
                 </div>
             </div>
+
+            <br>
+
+            <div><input type="checkbox" id="myCheck" name="deliveryChB" onclick="showDeliveryDetails()"> Dodací údaje se
+                liší od
+                fakturačních
+            </div>
+
+            <div id=text style="display: none">
+                <h2>Dodací údaje</h2>
+                <div id="form-contents">
+                    <div id="form-container">
+                        <div id="form-line">
+                            <label for="street"><b>Ulice <b class="color-red">*</b></b></label>
+                            <input type="text" name="street_sec"/>
+                        </div>
+                        <div id="form-line">
+                            <label for="city"><b>Město <b class="color-red">*</b></b></label>
+                            <input type="text" name="city_sec"/>
+                        </div>
+                    </div>
+                    <div id="form-container">
+                        <div id="form-line">
+                            <label for="zip_code"><b>PSČ <b class="color-red">*</b></b></label>
+                            <input type="text" name="zip_code_sec"
+                                   pattern="(([0-9]{3} [0-9]{2})|([0-9]{3}[0-9]{2}))">
+                        </div>
+                        <div id="form-line">
+                            <label for="country"><b>Země</b></label>
+                            <select name="country_sec">
+                                <option value="Česká republika">Česká republika</option>
+                                <option value="Slovenská republika">Slovenská republika</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
             <input type="submit" name="registration" value="Registrovat">
 
         </form>
         <p>Zaregistrovali jste se již dříve? <a href="<?= BASE_URL . "?page=login" ?>">Přihlášení</a>.</p>
         <br><br>
 </div>
+
+
+<!--
+***************************************************************************************
+*    Title: How TO - Display Text when Checkbox is Checked
+*    Author: www.w3schools.com
+*    Date: 2019
+*    Code version: 1.0
+*    Availability: https://www.w3schools.com/howto/howto_js_display_checkbox_text.asp
+*
+****************************************************************************************
+-->
+
+<script>
+    function showDeliveryDetails() {
+        var checkBox = document.getElementById("myCheck");
+        var text = document.getElementById("text");
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+</script>
