@@ -10,4 +10,4 @@ $stmt->execute();
 
 $stmt = $conn->prepare("ALTER TABLE address AUTO_INCREMENT = 1; ALTER TABLE user AUTO_INCREMENT = 1;");
 $stmt->execute();
-header("Location:" . BASE_URL . "?page=user_management" . "&message=" . "<br><b class='color-orange'>Uživatel byl odstraněn.</b><br>" . $_GET["message"]);
+header("Location:" . BASE_URL . "?page=user_management" . "&message=" . "<br><b class='color-orange'>Uživatel byl odstraněn.</b><br>");

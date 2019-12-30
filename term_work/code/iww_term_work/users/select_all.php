@@ -44,7 +44,7 @@ foreach ($data_user as $row_user) {
     <td >' . $row_user["address"] . "<br> " . $row_user["city"] . " " . $row_user["zip_code"] . ", " . createAcronym($row_user["country"]) . '</td >
     <td >' . ((isset($address)) ? ($address["address"] . "<br> " . $address["city"] . " " . $address["zip_code"] . ", " . createAcronym($address["country"])) : (" ╶ || ╴ ")) . '</td >
     <td>
-        <a href="?page=users&action=update&user_id=' . $row_user["user_id"] . '">Upravit</a>
+        <a href="?page=user_management&action=update&user_id=' . $row_user["user_id"] . '">Upravit</a>
         <a href="?page=user_management&action=delete&user_id=' . $row_user["user_id"] . '">Smazat</a>
     </td>
   </tr >';

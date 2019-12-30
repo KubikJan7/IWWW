@@ -62,7 +62,7 @@ if (isset($_POST['registration'])) {
                 $message = "Registrace proběhla úspěšně. Nyní se můžete <a id='link' href =$login_url>přihlásit</a>.";
                 $success = true;
             } catch (PDOException $e) {
-                if ($e->getCode() == 23000) //checks if it's exception code of duplicity
+                if ($e->getCode() == 23000) //checks if it's exception other_code of duplicity
                 {
                     $message = "Uživatel s touto e-mailovou adresou již existuje!";
 
@@ -157,7 +157,7 @@ if (isset($_POST['registration'])) {
                     <div id="form-line">
                         <label for="zip_code"><b>PSČ <b class="color-red">*</b></b></label>
                         <input type="text" name="zip_code"
-                               pattern="(([0-9]{3} [0-9]{2})|([0-9]{3}[0-9]{2}))">
+                               pattern="(([0-9]{3} [0-9]{2})|([0-9]{5}))">
                     </div>
                     <div id="form-line">
                         <label for="country"><b>Země</b></label>
@@ -171,7 +171,9 @@ if (isset($_POST['registration'])) {
 
             <br>
 
-            <div><input type="checkbox" id="myCheck" name="deliveryChB" onclick="showDeliveryDetails()"> Dodací údaje se
+            <div>
+                <?php require_once('./code/functions.php'); ?>
+                <input type="checkbox" id="sec_addr_check" name="deliveryChB" onclick="showDeliveryDetails()"> Dodací údaje se
                 liší od
                 fakturačních
             </div>
@@ -214,27 +216,3 @@ if (isset($_POST['registration'])) {
         <p>Zaregistrovali jste se již dříve? <a href="<?= BASE_URL . "?page=login" ?>">Přihlášení</a>.</p>
         <br><br>
 </div>
-
-
-<!--
-***************************************************************************************
-*    Title: How TO - Display Text when Checkbox is Checked
-*    Author: www.w3schools.com
-*    Date: 2019
-*    Code version: 1.0
-*    Availability: https://www.w3schools.com/howto/howto_js_display_checkbox_text.asp
-*
-****************************************************************************************
--->
-
-<script>
-    function showDeliveryDetails() {
-        var checkBox = document.getElementById("myCheck");
-        var text = document.getElementById("text");
-        if (checkBox.checked == true) {
-            text.style.display = "block";
-        } else {
-            text.style.display = "none";
-        }
-    }
-</script>
