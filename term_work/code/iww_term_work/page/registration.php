@@ -197,10 +197,12 @@ if (isset($_POST['registration'])) {
                         </div>
                         <div id="form-line">
                             <label for="country"><b>Země</b></label>
-                            <select name="country_sec">
-                                <option value="Česká republika">Česká republika</option>
-                                <option value="Slovenská republika">Slovenská republika</option>
-                            </select>
+                            <label>
+                                <select name="country_sec">
+                                    <option value="Česká republika">Česká republika</option>
+                                    <option value="Slovenská republika">Slovenská republika</option>
+                                </select>
+                            </label>
                         </div>
                     </div>
                 </div>

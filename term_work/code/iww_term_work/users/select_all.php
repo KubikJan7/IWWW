@@ -66,7 +66,7 @@ function createAcronym($text){
 }
 ?>
 
-<a id="button_orange_border" href="<?= BASE_URL . "?page=users&action=insert" ?>">Přidat uživatele</a>
+<a id="button_orange_border" href="<?= BASE_URL . "?page=user_management&action=insert" ?>">Přidat uživatele</a>
 <a id="button_orange_border" href="<?= BASE_URL . "?page=logout&action=delete_all&message=" .
 "<br><b class='color-orange'>Všichni uživatelé byli odstraněni.</b><br>" ?>"
    onclick="return confirm('Opravdu si přejete pokračovat? Tímto smažete i svůj účet.')">Odstranit veškeré uživatele</a>

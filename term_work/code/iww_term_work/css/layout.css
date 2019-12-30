@@ -166,7 +166,7 @@ input[type=email], input[type=tel], input[type=text], input[type=password] {
 
 input[type=tel]:focus, input[type=email]:focus, input[type=text]:focus, input[type=password]:focus {
     background-color: #F2FEDC;
-    outline: none;
+    outline-color: #F49268;
 }
 
 input[type=submit], #button_orange_border{
@@ -181,12 +181,57 @@ input[type=submit], #button_orange_border{
 }
 
 div select {
-    width: 69.5%;
+    width: 70%;
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-flex;
     border: none;
     background: white;
+}
+div select :focus{
+    background-color: #F2FEDC;
+    outline-color: #F49268;
+}
+#admin-input{
+    width: 12%;
+    padding: 15px;
+    margin: 5px 0 5px 0;
+    display: inline-flex;
+    border: none;
+    background: white;
+}
+
+#admin-input:focus{
+    background-color: #F2FEDC;
+    outline-color: #F49268;
+}
+
+#admin-form{
+    padding-top: 40px;
+}
+
+#admin-submit{
+    background-color: #F49268;
+    color: white;
+    padding: 16px 16px;
+    margin: 8px 0 5px 0;
+    border: none;
+    cursor: pointer;
+    width: 5%;
+}
+
+#admin-select{
+    width: 12%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-flex;
+    border: none;
+    background: white;
+}
+
+#admin-select:focus{
+    background-color: #F2FEDC;
+    outline-color: #F49268;
 }
 
 #form-contents {
@@ -332,7 +377,7 @@ footer div{
     margin: auto;
 }
 
-.centered-80 {
+.centered-90 {
     width: 90%;
     margin: auto;
 }
