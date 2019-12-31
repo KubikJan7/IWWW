@@ -209,8 +209,8 @@ if (empty($errorFeedbackArray)) { //load origin data from database
             }
             echo "<br>";
         } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($successFeedback)) {
-            header("Location:" . BASE_URL . "?page=user_management" . "&action=update" . "&user_id=" .
-                $_GET["user_id"] . "&message=" . "<br><b class='color-green'>$successFeedback.</b><br>");
+            header("Location:" . BASE_URL . "?page=user_management" . "&action=user_update" . "&user_id=" .
+                $_GET["user_id"] . "&message=" . "<br><b class='color-green'>$successFeedback</b><br>");
         }
         ?>
         <input id="admin-input" type="text" name="first_name" placeholder="Jméno" value="<?= $first_name; ?>">

@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         echo "<br>";
     } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($successFeedback)) {
-        header("Location:" . BASE_URL . "?page=user_management" . "&action=insert" . "&message=" . "<br><b class='color-green'>$successFeedback.</b><br>");
+        header("Location:" . BASE_URL . "?page=user_management" . "&action=user_insert" . "&message=" . "<br><b class='color-green'>$successFeedback.</b><br>");
     }
     ?>
     <input id="admin-input" type="text" name="first_name" placeholder="Jméno"/>

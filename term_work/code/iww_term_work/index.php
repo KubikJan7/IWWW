@@ -25,6 +25,7 @@ $cartEmpty = true;
 
         <?php if (!empty($_SESSION["user_id"])) { ?> <!-- Check if the user is logged in -->
             <?php if ($_SESSION["role_id"] == 1) { ?> <!--Check if it's an admin -->
+                <a href="<?= BASE_URL . "?page=book_management" ?>"><i class="fa fa-book"></i> Správa knih</a>
                 <a href="<?= BASE_URL . "?page=user_management" ?>"><i class="fa fa-user"></i> Správa uživatelů</a>
             <?php } ?>
             <a href="<?= BASE_URL . "?page=account" ?>"><i class="fa fa-user"></i> Přihlášen
@@ -70,7 +71,7 @@ $cartEmpty = true;
 
 <main>
     <?php
-    if(isset($_GET["message"]))
+    if (isset($_GET["message"]))
         echo $_GET["message"];
 
     if (isset($_GET['page'])) {
@@ -84,14 +85,18 @@ $cartEmpty = true;
     }
 
     if (isset($_GET["action"])) {
-        if ($_GET["action"] == "insert")
-            include "./users/insert.php";
-        if ($_GET["action"] == "delete")
-            include "./users/delete.php";
-        if ($_GET["action"] == "update")
-            include "./users/update.php";
-        if ($_GET["action"] == "delete_all")
-            include "./users/delete_all.php";
+        //user management
+        if ($_GET["action"] == "user_insert")
+            include "./users/user_insert.php";
+        else if ($_GET["action"] == "user_delete")
+            include "./users/user_delete.php";
+        else if ($_GET["action"] == "user_update")
+            include "./users/user_update.php";
+        else if ($_GET["action"] == "user_delete_all")
+            include "./users/user_delete_all.php";
+        //book management
+        else if ($_GET["action"] == "book_import")
+            include "./books/book_import.php";
     }
 
     ?>

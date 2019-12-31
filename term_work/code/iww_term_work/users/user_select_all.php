@@ -44,8 +44,8 @@ foreach ($data_user as $row_user) {
     <td >' . $row_user["address"] . "<br> " . $row_user["city"] . " " . $row_user["zip_code"] . ", " . createAcronym($row_user["country"]) . '</td >
     <td >' . ((isset($address)) ? ($address["address"] . "<br> " . $address["city"] . " " . $address["zip_code"] . ", " . createAcronym($address["country"])) : (" ╶ || ╴ ")) . '</td >
     <td>
-        <a href="?page=user_management&action=update&user_id=' . $row_user["user_id"] . '">Upravit</a>
-        <a href="?page=user_management&action=delete&user_id=' . $row_user["user_id"] . '">Smazat</a>
+        <a href="?page=user_management&action=user_update&user_id=' . $row_user["user_id"] . '">Upravit</a>
+        <a href="?page=user_management&action=user_delete&user_id=' . $row_user["user_id"] . '">Smazat</a>
     </td>
   </tr >';
     $address = NULL;
@@ -66,7 +66,7 @@ function createAcronym($text){
 }
 ?>
 
-<a id="button_orange_border" href="<?= BASE_URL . "?page=user_management&action=insert" ?>">Přidat uživatele</a>
-<a id="button_orange_border" href="<?= BASE_URL . "?page=logout&action=delete_all&message=" .
+<a id="button_orange_border" href="<?= BASE_URL . "?page=user_management&action=user_insert" ?>">Přidat uživatele</a>
+<a id="button_orange_border" href="<?= BASE_URL . "?page=logout&action=user_delete_all&message=" .
 "<br><b class='color-orange'>Všichni uživatelé byli odstraněni.</b><br>" ?>"
    onclick="return confirm('Opravdu si přejete pokračovat? Tímto smažete i svůj účet.')">Odstranit veškeré uživatele</a>
