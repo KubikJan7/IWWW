@@ -1,67 +1,67 @@
 <?php
-$errorFeedbacks = array();
+$errorFeedbackArray = array();
 $successFeedback = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // <editor-fold default-state="collapsed" desc="input-validation">
     if (empty($_POST["first_name"])) {
         $feedbackMessage = "Je vyžadováno jméno!";
-        array_push($errorFeedbacks, $feedbackMessage);
+        array_push($errorFeedbackArray, $feedbackMessage);
     }
     if (empty($_POST["last_name"])) {
         $feedbackMessage = "Je vyžadováno příjmení!";
-        array_push($errorFeedbacks, $feedbackMessage);
+        array_push($errorFeedbackArray, $feedbackMessage);
     }
 
     if (empty($_POST["password"])) {
         $feedbackMessage = "Je vyžadováno heslo!";
-        array_push($errorFeedbacks, $feedbackMessage);
+        array_push($errorFeedbackArray, $feedbackMessage);
     }
 
     if (empty($_POST["email"])) {
         $feedbackMessage = "Je vyžadován e-mail!";
-        array_push($errorFeedbacks, $feedbackMessage);
+        array_push($errorFeedbackArray, $feedbackMessage);
     }
 
     if (empty($_POST["phone_number"])) {
         $feedbackMessage = "Je vyžadováno telefonní číslo!";
-        array_push($errorFeedbacks, $feedbackMessage);
+        array_push($errorFeedbackArray, $feedbackMessage);
     }
 
     if (empty($_POST["street"])) {
         $feedbackMessage = "Je vyžadována ulice s číslem popisným!";
-        array_push($errorFeedbacks, $feedbackMessage);
+        array_push($errorFeedbackArray, $feedbackMessage);
     }
 
     if (empty($_POST["city"])) {
         $feedbackMessage = "Je vyžadováno město!";
-        array_push($errorFeedbacks, $feedbackMessage);
+        array_push($errorFeedbackArray, $feedbackMessage);
     }
 
     if (empty($_POST["zip_code"])) {
         $feedbackMessage = "Je vyžadováno poštovní směrovací číslo!";
-        array_push($errorFeedbacks, $feedbackMessage);
+        array_push($errorFeedbackArray, $feedbackMessage);
     }
 
     if (isset($_POST['deliveryChB'])) { // check if the checkbox for delivery details is checked
         if (empty($_POST["street_sec"])) {
             $feedbackMessage = "V sekundární adrese je vyžadována ulice s číslem popisným!";
-            array_push($errorFeedbacks, $feedbackMessage);
+            array_push($errorFeedbackArray, $feedbackMessage);
         }
 
         if (empty($_POST["city_sec"])) {
             $feedbackMessage = "V sekundární adrese je vyžadováno město!";
-            array_push($errorFeedbacks, $feedbackMessage);
+            array_push($errorFeedbackArray, $feedbackMessage);
         }
 
         if (empty($_POST["zip_code_sec"])) {
             $feedbackMessage = "V sekundární adrese je vyžadováno poštovní směrovací číslo!";
-            array_push($errorFeedbacks, $feedbackMessage);
+            array_push($errorFeedbackArray, $feedbackMessage);
         }
     }
 // </editor-fold>
 
-    if (empty($errorFeedbacks)) {
+    if (empty($errorFeedbackArray)) {
         //success
         try {
             $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($e->getCode() == 23000) //checks if it's exception other_code of duplicity
             {
                 $feedbackMessage = "Uživatel s touto e-mailovou adresou již existuje!";
-                array_push($errorFeedbacks, $feedbackMessage);
+                array_push($errorFeedbackArray, $feedbackMessage);
 
                 # after unsuccessful INSERT, the id sequence was still incremented
                 $stmt = $conn->prepare("ALTER TABLE user AUTO_INCREMENT = 1"); // reset the sequence
@@ -128,9 +128,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <form id="admin-form" method="post">
     <h2>Přidat uživatele</h2>
     <?php
-    if (!empty($errorFeedbacks)) {
+    if (!empty($errorFeedbackArray)) {
         echo "<b class='color-orange'>Při zadávání se vyskytly tyto chyby:</b><br>";
-        foreach ($errorFeedbacks as $errorFeedback) {
+        foreach ($errorFeedbackArray as $errorFeedback) {
             echo "<b class='color-red'>" . $errorFeedback . "</b><br>";
         }
         echo "<br>";

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@localhost">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.16">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.17">
     <root id="1">
       <ServerVersion>10.1.37</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -11,7 +11,6 @@
       <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="3" parent="1" name="first_project">
-      <Current>1</Current>
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="4" parent="1" name="information_schema">
