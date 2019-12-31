@@ -1644,27 +1644,26 @@
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="449" parent="245" name="ean">
+    <column id="449" parent="245" name="isbn">
       <Position>1</Position>
-      <DataType>int(13)|0s</DataType>
+      <DataType>varchar(17)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="450" parent="245" name="name">
+    <column id="450" parent="245" name="author">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="451" parent="245" name="price">
+      <Position>3</Position>
+      <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="451" parent="245" name="author">
-      <Position>3</Position>
-      <DataType>varchar(45)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="452" parent="245" name="price">
+    <column id="452" parent="245" name="name">
       <Position>4</Position>
-      <DataType>double|0s</DataType>
+      <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1715,7 +1714,7 @@
     </index>
     <key id="462" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>ean</ColNames>
+      <ColNames>isbn</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="463" parent="245" name="fk_BOOK_LANGUAGE">
@@ -1741,9 +1740,9 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="467" parent="246" name="book_id">
+    <column id="467" parent="246" name="book_isbn">
       <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(17)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1752,7 +1751,7 @@
       <Type>btree</Type>
     </index>
     <index id="469" parent="246" name="fk_complaint_book1_idx">
-      <ColNames>book_id</ColNames>
+      <ColNames>book_isbn</ColNames>
       <Type>btree</Type>
     </index>
     <key id="470" parent="246" name="PRIMARY">
@@ -1766,9 +1765,9 @@
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="472" parent="246" name="fk_complaint_book1">
-      <ColNames>book_id</ColNames>
+      <ColNames>book_isbn</ColNames>
       <RefTableName>book</RefTableName>
-      <RefColNames>ean</RefColNames>
+      <RefColNames>isbn</RefColNames>
     </foreign-key>
     <column id="473" parent="247" name="id">
       <Position>1</Position>
@@ -1854,9 +1853,9 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="488" parent="250" name="book_id">
+    <column id="488" parent="250" name="book_isbn">
       <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(17)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1865,13 +1864,12 @@
       <Type>btree</Type>
     </index>
     <index id="490" parent="250" name="fk_purchase_book_book1_idx">
-      <ColNames>book_id</ColNames>
+      <ColNames>book_isbn</ColNames>
       <Type>btree</Type>
     </index>
     <key id="491" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>purchase_id
-book_id</ColNames>
+      <ColNames>purchase_id</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="492" parent="250" name="fk_purchase_book_purchase1">
@@ -1880,9 +1878,9 @@ book_id</ColNames>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="493" parent="250" name="fk_purchase_book_book1">
-      <ColNames>book_id</ColNames>
+      <ColNames>book_isbn</ColNames>
       <RefTableName>book</RefTableName>
-      <RefColNames>ean</RefColNames>
+      <RefColNames>isbn</RefColNames>
     </foreign-key>
     <column id="494" parent="251" name="id">
       <Position>1</Position>
@@ -1902,24 +1900,24 @@ book_id</ColNames>
       <DataType>longtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="497" parent="251" name="book_id">
+    <column id="497" parent="251" name="user_id">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="498" parent="251" name="user_id">
+    <column id="498" parent="251" name="book_isbn">
       <Position>5</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(17)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="499" parent="251" name="fk_review_book1_idx">
-      <ColNames>book_id</ColNames>
+    <index id="499" parent="251" name="fk_review_user1_idx">
+      <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="500" parent="251" name="fk_review_user1_idx">
-      <ColNames>user_id</ColNames>
+    <index id="500" parent="251" name="fk_review_book1_idx">
+      <ColNames>book_isbn</ColNames>
       <Type>btree</Type>
     </index>
     <key id="501" parent="251" name="PRIMARY">
@@ -1927,15 +1925,15 @@ book_id</ColNames>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="502" parent="251" name="fk_review_book1">
-      <ColNames>book_id</ColNames>
-      <RefTableName>book</RefTableName>
-      <RefColNames>ean</RefColNames>
-    </foreign-key>
-    <foreign-key id="503" parent="251" name="fk_review_user1">
+    <foreign-key id="502" parent="251" name="fk_review_user1">
       <ColNames>user_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="503" parent="251" name="fk_review_book1">
+      <ColNames>book_isbn</ColNames>
+      <RefTableName>book</RefTableName>
+      <RefColNames>isbn</RefColNames>
     </foreign-key>
     <column id="504" parent="252" name="id">
       <Position>1</Position>

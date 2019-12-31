@@ -27,10 +27,28 @@ foreach ($array as $row) {
     $conn->exec("set names utf8");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');
-
-    $stmt = $conn->prepare("SELECT id FROM role WHERE name = :role LIMIT 1");
-    $stmt->bindParam(':role', $_POST["role"]);
+    $stmt = $conn->prepare("SELECT genre.id FROM genre WHERE genre.name = :genre_name;");
+    $stmt->bindParam(':genre_name', $row["genre"]);
     $stmt->execute();
-    $role_id = $stmt->fetch();
+    $genre_id = $stmt->fetch();
+
+    $stmt = $conn->prepare("SELECT language.id FROM language WHERE language.name=:language_name");
+    $stmt->bindParam(':language_name', $row["language"]);
+    $stmt->execute();
+    $language_id = $stmt->fetch();
+
+    $stmt = $conn->prepare("INSERT INTO book (isbn, name, author, price, publication_date, description, page_count, binding, image, language_id, genre_id) 
+            VALUES (:isbn, :book_name, :author, :price, :publication_date, :description, :page_count, :binding, :image, :language_id, :genre_id)");
+    $stmt->bindParam(':isbn', $row["isbn"]);
+    $stmt->bindParam(':book_name', $row["name"]);
+    $stmt->bindParam(':author', $row["author"]);
+    $stmt->bindParam(':price', $row["price"]);
+    $stmt->bindParam(':publication_date', $row["publication_date"]);
+    $stmt->bindParam(':description', $row["description"]);
+    $stmt->bindParam(':page_count', $row["page_count"]);
+    $stmt->bindParam(':binding', $row["binding"]);
+    $stmt->bindParam(':image', $row["image"]);
+    $stmt->bindParam(':language_id', $language_id["id"]);
+    $stmt->bindParam(':genre_id', $genre_id["id"]);
+    $stmt->execute();
 }
