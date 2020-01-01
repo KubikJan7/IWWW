@@ -97,6 +97,8 @@ $cartEmpty = true;
         //book management
         else if ($_GET["action"] == "book_import")
             include "./books/book_import.php";
+        else if ($_GET["action"] == "book_delete_all")
+            include "./books/book_delete_all.php";
     }
 
     ?>

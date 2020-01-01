@@ -101,17 +101,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@7ceac08" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@527ce154" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@3064553c" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@239f575d" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -143,7 +133,8 @@
       <workItem from="1577662511500" duration="8124000" />
       <workItem from="1577716099303" duration="14094000" />
       <workItem from="1577746281874" duration="19801000" />
-      <workItem from="1577789904674" duration="22421000" />
+      <workItem from="1577789904674" duration="23033000" />
+      <workItem from="1577882935135" duration="28398000" />
     </task>
     <servers />
   </component>
@@ -151,26 +142,26 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1293" height="295" key="GridCell.Tab.0.bottom" timestamp="1577827923805">
+    <state width="1293" height="295" key="GridCell.Tab.0.bottom" timestamp="1577911450403">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1293" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577827923805" />
-    <state width="1293" height="295" key="GridCell.Tab.0.center" timestamp="1577827923805">
+    <state width="1293" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911450403" />
+    <state width="1293" height="295" key="GridCell.Tab.0.center" timestamp="1577911450403">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1293" height="295" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577827923805" />
-    <state width="1293" height="295" key="GridCell.Tab.0.left" timestamp="1577827923805">
+    <state width="1293" height="295" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911450403" />
+    <state width="1293" height="295" key="GridCell.Tab.0.left" timestamp="1577911450402">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1293" height="295" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577827923805" />
-    <state width="1293" height="295" key="GridCell.Tab.0.right" timestamp="1577827923805">
+    <state width="1293" height="295" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911450402" />
+    <state width="1293" height="295" key="GridCell.Tab.0.right" timestamp="1577911450403">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1293" height="295" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577827923805" />
-    <state x="794" y="464" key="NewPhpFileDialog" timestamp="1577808151397">
+    <state width="1293" height="295" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911450403" />
+    <state x="794" y="464" key="NewPhpFileDialog" timestamp="1577911156516">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="794" y="464" key="NewPhpFileDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577808151397" />
+    <state x="794" y="464" key="NewPhpFileDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911156516" />
     <state x="461" y="183" key="SettingsEditor" timestamp="1577800989242">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

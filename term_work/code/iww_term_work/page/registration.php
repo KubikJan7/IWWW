@@ -62,7 +62,7 @@ if (isset($_POST['registration'])) {
                 $message = "Registrace proběhla úspěšně. Nyní se můžete <a id='link' href =$login_url>přihlásit</a>.";
                 $success = true;
             } catch (PDOException $e) {
-                if ($e->getCode() == 23000) //checks if it's exception other_code of duplicity
+                if ($e->getCode() == 23000) //checks if it's exception code of duplicity
                 {
                     $message = "Uživatel s touto e-mailovou adresou již existuje!";
 
