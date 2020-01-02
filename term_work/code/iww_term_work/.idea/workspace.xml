@@ -50,6 +50,13 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bookworm_database: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="book: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="term_work: schema" type="ebfa3cd1:MariaImplModel$Schema" />
       </path>
     </expand>
@@ -103,6 +110,11 @@
                 <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
                 <item name="com.intellij.database.console.session.MessageBusSession@239f575d" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@7db6da1e" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
             </expand>
             <select />
           </treeState>
@@ -134,7 +146,7 @@
       <workItem from="1577716099303" duration="14094000" />
       <workItem from="1577746281874" duration="19801000" />
       <workItem from="1577789904674" duration="23033000" />
-      <workItem from="1577882935135" duration="28398000" />
+      <workItem from="1577882935135" duration="39846000" />
     </task>
     <servers />
   </component>
@@ -158,10 +170,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1293" height="295" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911450403" />
-    <state x="794" y="464" key="NewPhpFileDialog" timestamp="1577911156516">
+    <state x="794" y="464" key="NewPhpFileDialog" timestamp="1577925329444">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="794" y="464" key="NewPhpFileDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911156516" />
+    <state x="794" y="464" key="NewPhpFileDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577925329444" />
     <state x="461" y="183" key="SettingsEditor" timestamp="1577800989242">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

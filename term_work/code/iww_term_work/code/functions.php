@@ -1,4 +1,3 @@
-
 <!--
 ***************************************************************************************
 *    Title: How TO - Display Text when Checkbox is Checked
@@ -29,5 +28,25 @@
         } else {
             text.style.display = "none";
         }
+    }
+
+    /*
+    * ***************************************************************************************
+    * End of quoted code
+    * ***************************************************************************************
+    */
+
+    function openSetFilepathDialog(action) {
+        var filepath;
+        if (action === 'import')
+            filepath = prompt("Zadejte prosím cestu pro načtení JSON souboru:", "./json_files/books.json");
+        else
+            filepath = prompt("Zadejte prosím cestu pro uložení JSON souboru:", "./json_files/books_export.json");
+        if (filepath == null)
+            return;
+        if (action === "import")
+            window.location.href = "<?= BASE_URL . "?page=book_management&action=book_import&filepath="?>" + filepath;
+        else
+            window.location.href = "<?="?action=book_export&filepath="?>" + filepath;
     }
 </script>

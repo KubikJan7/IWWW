@@ -60,12 +60,12 @@ if ($strJsonFileContents == false) {
             $stmt->bindParam(':language_id', $language_id["id"]);
             $stmt->bindParam(':genre_id', $genre_id["id"]);
             $stmt->execute();
-            $message = "<p><b class='color-green'>Do databáze byly naimportovány knihy ze zadaného souboru!</b></p>";
+            $message = "<p><b class='color-green'>Do databáze byly uloženy knihy ze zadaného souboru!</b></p>";
         }
 
     } catch (PDOException $e) {
         if ($e->getCode() == 23000) //checks if it's exception code of duplicity
-            $message = "<p><b class='color-red'>Databáze již obsahuje knihy se stejným ISBN!</b></p>";
+            $message = "<p><b class='color-red'>Databáze již obsahuje knihu se stejným ISBN!</b></p>";
         else
             $message = "<p><b class='color-red'>Při importu nastaly potíže, zkuste to prosím později.</b></p>";
     }

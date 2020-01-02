@@ -97,8 +97,11 @@ $cartEmpty = true;
         //book management
         else if ($_GET["action"] == "book_import")
             include "./books/book_import.php";
+        else if ($_GET["action"] == "book_export")
+            include "./books/book_export.php";
         else if ($_GET["action"] == "book_delete_all")
             include "./books/book_delete_all.php";
+
     }
 
     ?>
@@ -108,6 +111,11 @@ $cartEmpty = true;
         <p>Copyright
             ©<?php echo date("Y"); ?>
             Bookworm
+        </p>
+    </div>
+    <div>
+        <?php require_once "./code/functions.php"?>
+        <p><a onclick="openSetFilepathDialog('export')">Export knih</a></p>
     </div>
 </footer>
 </body>
