@@ -155,7 +155,7 @@ label {
     padding: 15px 0;
 }
 
-input[type=email], input[type=tel], input[type=text], input[type=password] {
+input[type=email], input[type=tel], input[type=text], input[type=password]{
     width: 65%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -193,7 +193,6 @@ div select :focus{
     background-color: #F2FEDC;
     outline-color: #F49268;
 }
-
 #admin-input{
     width: 12%;
     padding: 15px;
@@ -208,11 +207,11 @@ div select :focus{
     outline-color: #F49268;
 }
 
-#admin-form{
+#custom-form{
     padding-top: 40px;
 }
 
-#admin-submit{
+#custom-submit{
     background-color: #F49268;
     color: white;
     padding: 16px 16px;
@@ -222,37 +221,42 @@ div select :focus{
     width: 5%;
 }
 
-#admin-select{
-    width: 13%;
+#custom-select{
+    width: 14.1%;
     padding: 15px;
-    margin: 5px 0 22px 0;
+    margin: 5px 0 10px 0;
     display: inline-flex;
     border: none;
     background: white;
 }
 
-#admin-select:focus{
+#custom-select a {
     background-color: #F2FEDC;
     outline-color: #F49268;
 }
 
-#form-contents {
+#custom-select:focus{
+    background-color: #F2FEDC;
+    outline-color: #F49268;
+}
+
+#custom-form-contents {
     position: relative;
     display: flex;
     justify-content: space-between;
 }
 
-#form-container {
+#custom-form-container {
     display: block;
     width: 45%;
 }
 
-#form-line {
+#custom-form-line {
     display: flex;
     justify-content: space-between;
 }
 
-#form-line-blank {
+#custom-form-line-blank {
     padding: 15px;
     margin: 5px 70px 22px 20px;
     display: inline-flex;
@@ -410,13 +414,36 @@ table {
 }
 
 th, td {
-    padding: 15px;
+    padding: 10px;
 }
 
 td a{
     color: #F49268;
     text-decoration: unset;
     padding-right: 20px;
+}
+
+#book_desc_readonly{
+    border: none;
+    background-color: #F5F5F5;
+}
+
+#book_desc_writeable{
+    width: 84%;
+    padding: 15px;
+    margin: 0 0 22px 0;
+    display: inline-flex;
+    border: none;
+    background: white;
+}
+
+#book_desc_writeable:focus{
+    background-color: #F2FEDC;
+    outline-color: #F49268;
+}
+
+#book_desc_cell{
+    padding: 0 0 0 5px;
 }
 
 /* Create two unequal columns that floats next to each other */

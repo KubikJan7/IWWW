@@ -64,9 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($errorFeedbackArray)) {
         //success
         try {
-            $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-            $conn->exec("set names utf8");
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn = CustomFunctions::createConnectionToDatabase();
 
             $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');
 
@@ -125,8 +123,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
 
-<form id="admin-form" method="post">
-    <h2>Přidat uživatele</h2>
+<form id="custom-form" method="post">
+    <h2>Přidání uživatele</h2>
     <?php
     if (!empty($errorFeedbackArray)) {
         echo "<b class='color-orange'>Při zadávání se vyskytly tyto chyby:</b><br>";
@@ -135,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         echo "<br>";
     } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($successFeedback)) {
-        header("Location:" . BASE_URL . "?page=user_management" . "&action=user_insert" . "&message=" . "<br><b class='color-green'>$successFeedback.</b><br>");
+        header("Location:" . BASE_URL . "?page=user_management" . "&action=user_insert" . "&message=" . "<br><b class='color-green'>$successFeedback</b><br>");
     }
     ?>
     <input id="admin-input" type="text" name="first_name" placeholder="Jméno"/>
@@ -145,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            pattern="[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$">
     <input id="admin-input" type="tel" name="phone_number" placeholder="Telefonní číslo"
            pattern="(([0-9]{3} [0-9]{3} [0-9]{3})|([0-9]{3}[0-9]{3}[0-9]{3}))">
-    <select id="admin-select" name="role">
+    <select id="custom-select" name="role">
         <option value="Administrátor">Administrátor</option>
         <option value="Zaměstnanec">Zaměstnanec</option>
         <option value="Zákazník">Zákazník</option>
@@ -154,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <input id="admin-input" type="text" name="street" placeholder="Ulice">
     <input id="admin-input" type="text" name="city" placeholder="Město">
     <input id="admin-input" type="text" name="zip_code" placeholder="PSČ" pattern="(([0-9]{3} [0-9]{2})|([0-9]{5}))">
-    <select id="admin-select" name="country">
+    <select id="custom-select" name="country">
         <option value="Česká republika">Česká republika</option>
         <option value="Slovenská republika">Slovenská republika</option>
     </select>
@@ -170,10 +168,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input id="admin-input" type="text" name="city_sec" placeholder="Město">
         <input id="admin-input" type="text" name="zip_code_sec" placeholder="PSČ"
                pattern="(([0-9]{3} [0-9]{2})|([0-9]{5}))">
-        <select id="admin-select" name="country_sec">
+        <select id="custom-select" name="country_sec">
             <option value="Česká republika">Česká republika</option>
             <option value="Slovenská republika">Slovenská republika</option>
         </select>
     </div>
-    <input id="admin-submit" type="submit" name="add_user" value="Přidat">
+    <input id="custom-submit" type="submit" name="add_user" value="Přidat">
 </form>

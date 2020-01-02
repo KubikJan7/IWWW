@@ -99,6 +99,12 @@ $cartEmpty = true;
             include "./books/book_import.php";
         else if ($_GET["action"] == "book_export")
             include "./books/book_export.php";
+        else if ($_GET["action"] == "book_insert")
+            include "./books/book_insert.php";
+        else if ($_GET["action"] == "book_update")
+            include "./books/book_update.php";
+        else if ($_GET["action"] == "book_delete")
+            include "./books/book_delete.php";
         else if ($_GET["action"] == "book_delete_all")
             include "./books/book_delete_all.php";
 

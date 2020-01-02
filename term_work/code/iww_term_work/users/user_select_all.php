@@ -1,7 +1,6 @@
 <?php
-$conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-$conn -> exec("set names utf8");
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require_once "./code/functions.php";
+$conn = CustomFunctions::createConnectionToDatabase();
 
 $data_user = $conn->query(
     "SELECT *, user.id AS user_id FROM user, role, address WHERE role_id = role.id 

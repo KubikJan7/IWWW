@@ -1,4 +1,6 @@
 <?php
+require('./code/functions.php');
+
 $message = "";
 $success = false;
 
@@ -19,10 +21,7 @@ if (isset($_POST['registration'])) {
             $message = "Zadaná hesla se neshodují!";
         else
             try {
-                $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-                $conn -> exec("set names utf8");
-                // set the PDO error mode to exception
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $conn = CustomFunctions::createConnectionToDatabase();
 
                 $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');  //hash of the user password
 
@@ -102,25 +101,25 @@ if (isset($_POST['registration'])) {
         <br>
         <form method="post">
             <h2>Registrační údaje</h2>
-            <div id="form-contents">
-                <div id="form-container">
-                    <div id="form-line">
+            <div id="custom-form-contents">
+                <div id="custom-form-container">
+                    <div id="custom-form-line">
                         <label for="email"><b>E-mailová adresa <b class="color-red">*</b></b></label>
                         <input type="email" name="email"
                                pattern="[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$"/>
                     </div>
-                    <div id="form-line">
+                    <div id="custom-form-line">
                         <label for="password"><b>Heslo <b class="color-red">*</b></b></label>
                         <input type="password" name="password">
                     </div>
 
                 </div>
 
-                <div id="form-container">
-                    <div id="form-line">
-                        <p id="form-line-blank"><br></p>
+                <div id="custom-form-container">
+                    <div id="custom-form-line">
+                        <p id="custom-form-line-blank"><br></p>
                     </div>
-                    <div id="form-line">
+                    <div id="custom-form-line">
                         <label for="password_repeat"><b>Potvrzení hesla <b class="color-red">*</b></b></label>
                         <input type="password" name="password_repeat">
                     </div>
@@ -129,37 +128,37 @@ if (isset($_POST['registration'])) {
             <br>
 
             <h2>Fakturační údaje</h2>
-            <div id="form-contents">
-                <div id="form-container">
-                    <div id="form-line">
+            <div id="custom-form-contents">
+                <div id="custom-form-container">
+                    <div id="custom-form-line">
                         <label for="first_name"><b>Jméno <b class="color-red">*</b></b></label>
                         <input type="text" name="first_name">
                     </div>
-                    <div id="form-line">
+                    <div id="custom-form-line">
                         <label for="street"><b>Ulice <b class="color-red">*</b></b></label>
                         <input type="text" name="street"/>
                     </div>
-                    <div id="form-line">
+                    <div id="custom-form-line">
                         <label for="city"><b>Město <b class="color-red">*</b></b></label>
                         <input type="text" name="city"/>
                     </div>
-                    <div id="form-line">
+                    <div id="custom-form-line">
                         <label for="phone_number"><b>Telefon <b class="color-red">*</b></b></label>
                         <input type="tel" name="phone_number"
                                pattern="(([0-9]{3} [0-9]{3} [0-9]{3})|([0-9]{3}[0-9]{3}[0-9]{3}))">
                     </div>
                 </div>
-                <div id="form-container">
-                    <div id="form-line">
+                <div id="custom-form-container">
+                    <div id="custom-form-line">
                         <label for="last_name"><b>Příjmení <b class="color-red">*</b></b></label>
                         <input type="text" name="last_name">
                     </div>
-                    <div id="form-line">
+                    <div id="custom-form-line">
                         <label for="zip_code"><b>PSČ <b class="color-red">*</b></b></label>
                         <input type="text" name="zip_code"
                                pattern="(([0-9]{3} [0-9]{2})|([0-9]{5}))">
                     </div>
-                    <div id="form-line">
+                    <div id="custom-form-line">
                         <label for="country"><b>Země</b></label>
                         <select name="country">
                             <option value="Česká republika">Česká republika</option>
@@ -172,39 +171,37 @@ if (isset($_POST['registration'])) {
             <br>
 
             <div>
-                <?php require_once('./code/functions.php'); ?>
-                <input type="checkbox" id="sec_addr_check" name="deliveryChB" onclick="showDeliveryDetails()"> Dodací údaje se
+                <input type="checkbox" id="sec_addr_check" name="sec_addr_check" onclick="showDeliveryDetails()"> Dodací
+                údaje se
                 liší od
                 fakturačních
             </div>
 
-            <div id=text style="display: none">
+            <div id=secondary-address style="display: none">
                 <h2>Dodací údaje</h2>
-                <div id="form-contents">
-                    <div id="form-container">
-                        <div id="form-line">
+                <div id="custom-form-contents">
+                    <div id="custom-form-container">
+                        <div id="custom-form-line">
                             <label for="street"><b>Ulice <b class="color-red">*</b></b></label>
                             <input type="text" name="street_sec"/>
                         </div>
-                        <div id="form-line">
+                        <div id="custom-form-line">
                             <label for="city"><b>Město <b class="color-red">*</b></b></label>
                             <input type="text" name="city_sec"/>
                         </div>
                     </div>
-                    <div id="form-container">
-                        <div id="form-line">
+                    <div id="custom-form-container">
+                        <div id="custom-form-line">
                             <label for="zip_code"><b>PSČ <b class="color-red">*</b></b></label>
                             <input type="text" name="zip_code_sec"
                                    pattern="(([0-9]{3} [0-9]{2})|([0-9]{3}[0-9]{2}))">
                         </div>
-                        <div id="form-line">
+                        <div id="custom-form-line">
                             <label for="country"><b>Země</b></label>
-                            <label>
-                                <select name="country_sec">
-                                    <option value="Česká republika">Česká republika</option>
-                                    <option value="Slovenská republika">Slovenská republika</option>
-                                </select>
-                            </label>
+                            <select name="country_sec">
+                                <option value="Česká republika">Česká republika</option>
+                                <option value="Slovenská republika">Slovenská republika</option>
+                            </select>
                         </div>
                     </div>
                 </div>

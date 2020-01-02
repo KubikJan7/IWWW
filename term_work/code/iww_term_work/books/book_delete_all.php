@@ -1,6 +1,6 @@
 <?php
-$conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-$conn -> exec("set names utf8");
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conn = CustomFunctions::createConnectionToDatabase();
 $stmt = $conn->prepare("DELETE FROM book;");
 $stmt->execute();
+
+header("Location:" . BASE_URL . "?page=book_management" . "&message=<p><b class='color-green'>Všechny knihy byly odstraněny.</b><p>");

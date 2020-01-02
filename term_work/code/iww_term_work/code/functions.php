@@ -50,3 +50,28 @@
             window.location.href = "<?="?action=book_export&filepath="?>" + filepath;
     }
 </script>
+<?php
+
+class CustomFunctions
+{
+
+    public static function createConnectionToDatabase()
+    {
+        $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
+        $conn->exec("set names utf8");
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $conn;
+    }
+
+    public static function getAllBookGenres()
+    {
+        $conn = self::createConnectionToDatabase();
+        return $conn->query("SELECT name FROM genre")->fetchAll();
+    }
+    public static function getAllBookLanguages(){
+        $conn = self::createConnectionToDatabase();
+        return $conn->query("SELECT name FROM language")->fetchAll();
+    }
+}
+
+?>

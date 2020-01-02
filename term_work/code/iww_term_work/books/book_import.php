@@ -32,9 +32,7 @@ if ($strJsonFileContents == false) {
 // save data to database
     try {
         foreach ($array as $row) {
-            $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-            $conn->exec("set names utf8");
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn = CustomFunctions::createConnectionToDatabase();
 
             $stmt = $conn->prepare("SELECT genre.id FROM genre WHERE genre.name = :genre_name;");
             $stmt->bindParam(':genre_name', $row["genre"]);

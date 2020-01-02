@@ -1,11 +1,9 @@
 <?php
-
+require_once "./code/functions.php";
 if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPassword"])) {
 
     //connect to database
-    $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-    $conn -> exec("set names utf8");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn = CustomFunctions::createConnectionToDatabase();
 
     $hashedPassword = crypt($_POST["loginPassword"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk'); // hash the password from login
 
@@ -48,11 +46,11 @@ if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPasswor
     <h1>Přihlášení</h1>
     <br>
     <form method="post">
-        <div id="form-line">
+        <div id="custom-form-line">
             <label for="email"><b>E-mailová adresa</b></label>
             <input type="email" name="loginMail">
         </div>
-        <div id="form-line">
+        <div id="custom-form-line">
             <label for="email"><b>Heslo</b></label>
             <input type="password" name="loginPassword">
         </div>

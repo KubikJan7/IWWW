@@ -146,11 +146,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <?php
-include('./code/functions.php');
 if (empty($errorFeedbackArray)) { //load origin data from database
-    $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-    $conn->exec("set names utf8");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn = CustomFunctions::createConnectionToDatabase();
+
     $stmt = $conn->prepare("SELECT * FROM user, role, address WHERE user.id = :id AND role_id = role.id 
                     AND address.user_id = user.id AND type = 'primary'");
     $stmt->bindParam(':id', $_GET["user_id"]);
@@ -199,7 +197,7 @@ if (empty($errorFeedbackArray)) { //load origin data from database
 }
 
 ?>
-    <form id="admin-form" method="post">
+    <form id="custom-form" method="post">
         <h2>Upravit uživatele</h2>
         <?php
         if (!empty($errorFeedbackArray)) {
@@ -220,7 +218,7 @@ if (empty($errorFeedbackArray)) { //load origin data from database
                pattern="[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$" value="<?= $email; ?>">
         <input id="admin-input" type="tel" name="phone_number" placeholder="Telefonní číslo"
                pattern="(([0-9]{3} [0-9]{3} [0-9]{3})|([0-9]{3}[0-9]{3}[0-9]{3}))" value="<?= $phone_number; ?>">
-        <select id="admin-select" name="role">
+        <select id="custom-select" name="role">
             <option value="Administrátor" <?php if ($role == "Administrátor") echo "SELECTED"; ?>>Administrátor</option>
             <option value="Zaměstnanec" <?php if ($role == "Zaměstnanec") echo "SELECTED"; ?>>Zaměstnanec</option>
             <option value="Zákazník" <?php if ($role == "Zákazník") echo "SELECTED"; ?>>Zákazník</option>
@@ -230,7 +228,7 @@ if (empty($errorFeedbackArray)) { //load origin data from database
         <input id="admin-input" type="text" name="city" placeholder="Město" value="<?= $city; ?>">
         <input id="admin-input" type="text" name="zip_code" placeholder="PSČ" pattern="(([0-9]{3} [0-9]{2})|([0-9]{5}))"
                value="<?= $zip_code; ?>">
-        <select id="admin-select" name="country">
+        <select id="custom-select" name="country">
             <option value="Česká republika" <?php if ($country == "Česká republika") echo "SELECTED"; ?>>Česká
                 republika
             </option>
@@ -253,7 +251,7 @@ if (empty($errorFeedbackArray)) { //load origin data from database
             <input id="admin-input" type="text" name="city_sec" placeholder="Město" value="<?= $city_sec; ?>">
             <input id="admin-input" type="text" name="zip_code_sec" placeholder="PSČ"
                    pattern="(([0-9]{3} [0-9]{2})|([0-9]{5}))" value="<?= $zip_code_sec; ?>">
-            <select id="admin-select" name="country_sec">
+            <select id="custom-select" name="country_sec">
                 <option value="Česká republika" <?php if ($country_sec == "Česká republika") echo "SELECTED"; ?>>Česká
                     republika
                 </option>
@@ -262,7 +260,7 @@ if (empty($errorFeedbackArray)) { //load origin data from database
                 </option>
             </select>
         </div>
-        <input id="admin-submit" type="submit" name="add_user" value="Upravit">
+        <input id="custom-submit" type="submit" name="add_user" value="Upravit">
     </form>
 
 <?php
