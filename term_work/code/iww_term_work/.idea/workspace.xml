@@ -115,7 +115,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@46a6ac5b" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@7a4feb40" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -150,6 +150,7 @@
       <workItem from="1577789904674" duration="23033000" />
       <workItem from="1577882935135" duration="39846000" />
       <workItem from="1577967852275" duration="37098000" />
+      <workItem from="1578052431926" duration="10155000" />
     </task>
     <servers />
   </component>
@@ -157,22 +158,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1293" height="295" key="GridCell.Tab.0.bottom" timestamp="1577911450403">
+    <state width="1293" height="295" key="GridCell.Tab.0.bottom" timestamp="1578052656547">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1293" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911450403" />
-    <state width="1293" height="295" key="GridCell.Tab.0.center" timestamp="1577911450403">
+    <state width="1293" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578052656547" />
+    <state width="1293" height="295" key="GridCell.Tab.0.center" timestamp="1578052656547">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1293" height="295" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911450403" />
-    <state width="1293" height="295" key="GridCell.Tab.0.left" timestamp="1577911450402">
+    <state width="1293" height="295" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578052656547" />
+    <state width="1293" height="295" key="GridCell.Tab.0.left" timestamp="1578052656546">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1293" height="295" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911450402" />
-    <state width="1293" height="295" key="GridCell.Tab.0.right" timestamp="1577911450403">
+    <state width="1293" height="295" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578052656546" />
+    <state width="1293" height="295" key="GridCell.Tab.0.right" timestamp="1578052656547">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1293" height="295" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577911450403" />
+    <state width="1293" height="295" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578052656547" />
     <state x="794" y="464" key="NewPhpFileDialog" timestamp="1577978367809">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

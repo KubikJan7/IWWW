@@ -49,6 +49,18 @@
         else
             window.location.href = "<?="?action=book_export&filepath="?>" + filepath;
     }
+
+    function openNav() {
+        document.getElementById("category-menu").style.display = "block";
+        document.getElementById("category-menu").style.paddingBottom = "10px";
+        document.getElementById("category-menu").style.boxShadow = "0 1px 5px 1px grey";
+    }
+
+    function closeNav() {
+        document.getElementById("category-menu").style.display = "none";
+        document.getElementById("category-menu").style.paddingBottom = "0";
+        document.getElementById("category-menu").style.boxShadow = "none";
+    }
 </script>
 <?php
 
@@ -72,6 +84,7 @@ class CustomFunctions
         $conn = self::createConnectionToDatabase();
         return $conn->query("SELECT name FROM language")->fetchAll();
     }
+
 }
 
 ?>

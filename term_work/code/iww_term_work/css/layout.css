@@ -57,7 +57,9 @@ header nav a:hover {
     padding: 0 10px;
 }
 
-
+#search-container{
+    padding-top: 15px;
+}
 #search-container input[type=search] {
     width: 500px;
     height: 33px;
@@ -65,7 +67,9 @@ header nav a:hover {
     border: none;
     font-size: 15px;
 }
-
+#search-container input[type=search]:focus{
+    outline-color: #F49268;
+}
 #search-container button {
     float: right;
     padding: 6px 10px;
@@ -118,28 +122,27 @@ header nav a:hover {
 }
 
 #category-menu {
-    height: 0;
-    width: 149px;
+    width: 200px;
     position: fixed;
-    top: 111px;
-    left: 180px;
-    background-color: #333333;
+    left: 80px;
+    background-color: #F5F5F5;
     overflow: hidden;
-    transition: 0.5s;
+    display: none;
     z-index: 1;
+    padding-top: 8px;
 }
 
 #category-menu a {
-    padding: 8px 8px 8px 32px;
+    padding: 0 5px 0 5px;
     text-decoration: none;
-    font-size: 22px;
     color: #818181;
-    display: block;
     transition: 0.3s;
+    display: flex;
+    justify-content: space-between;
 }
 
 #category-menu a:hover {
-    color: #A2C523;
+    color: #F49268;
 }
 
 #category-btn {
@@ -147,8 +150,7 @@ header nav a:hover {
     cursor: pointer;
     position: relative;
     color: black;
-    left: 150px;
-    text-align: center;
+    left: 110px;
 }
 
 label {

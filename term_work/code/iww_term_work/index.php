@@ -2,6 +2,7 @@
 ob_start();
 session_start();
 include "./config.php"; //load configurations
+require_once "./code/functions.php";
 $cartEmpty = true;
 ?>
 <!DOCTYPE html>
@@ -49,25 +50,22 @@ $cartEmpty = true;
     </div>
     <a href="<?= BASE_URL . "?page=cart" ?>"><i class="fa fa-shopping-cart"></i> Košík</a>
 </section>
+
 <div id="category-menu" onmouseover="openNav()" onmouseleave="closeNav()">
-    <a href="<?= BASE_URL ?>">Fantasy</a>
-    <a href="<?= BASE_URL ?>">Scifi </a>
-    <a href="<?= BASE_URL ?>">Horror</a>
-    <a href="<?= BASE_URL ?>">Biografie</a>
-    <a href="<?= BASE_URL ?>">Odborné</a>
+    <?php
+    $genres = CustomFunctions::getAllBookGenres();
+    $index = 0;
+    $count = count($genres);
+    foreach ($genres AS $genre_row) {
+        echo("<a href=" . BASE_URL . "?genre=". str_replace(" ","_",$genre_row["name"]) . ">"
+            . $genre_row["name"] . "<i class=\"fa fa-chevron-right\"></i></a>");
+
+        if($index<$count-1) //add thematic break after each entry apart from the last one
+            echo "<hr>";
+        $index++;
+    }
+    ?>
 </div>
-
-<script>
-    function openNav() {
-        document.getElementById("category-menu").style.height = "100%";
-        document.getElementById("category-menu").style.paddingTop = "30px";
-    }
-
-    function closeNav() {
-        document.getElementById("category-menu").style.height = "0";
-        document.getElementById("category-menu").style.paddingTop = "0";
-    }
-</script>
 
 <main>
     <?php
@@ -120,7 +118,6 @@ $cartEmpty = true;
         </p>
     </div>
     <div>
-        <?php require_once "./code/functions.php"?>
         <p><a id="export-btn" onclick="openSetFilepathDialog('export')">Export knih</a></p>
     </div>
 </footer>
