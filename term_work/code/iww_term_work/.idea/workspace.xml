@@ -107,7 +107,17 @@
       <list>
         <serviceView>
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@46a6ac5b" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -139,7 +149,7 @@
       <workItem from="1577746281874" duration="19801000" />
       <workItem from="1577789904674" duration="23033000" />
       <workItem from="1577882935135" duration="39846000" />
-      <workItem from="1577967852275" duration="23198000" />
+      <workItem from="1577967852275" duration="37098000" />
     </task>
     <servers />
   </component>

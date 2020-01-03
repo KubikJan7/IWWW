@@ -121,7 +121,7 @@ $cartEmpty = true;
     </div>
     <div>
         <?php require_once "./code/functions.php"?>
-        <p><a onclick="openSetFilepathDialog('export')">Export knih</a></p>
+        <p><a id="export-btn" onclick="openSetFilepathDialog('export')">Export knih</a></p>
     </div>
 </footer>
 </body>

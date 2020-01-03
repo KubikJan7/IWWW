@@ -104,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt->bindParam(':user_id', $user_id);
                 $stmt->execute();
             }
+            $successFeedback = "Uživatel byl přidán.";
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) //checks if it's exception other_code of duplicity
             {
@@ -114,10 +115,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt = $conn->prepare("ALTER TABLE user AUTO_INCREMENT = 1"); // reset the sequence
                 $stmt->execute();
 
-            } else
-                $message = "Při registraci došlo k potížím, zkuste to prosím znovu!";
+            } else {
+                $feedbackMessage = "Při registraci došlo k potížím, zkuste to prosím znovu!";
+                array_push($errorFeedbackArray, $feedbackMessage);
+            }
         }
-        $successFeedback = "Uživatel byl přidán.";
+
     }
 }
 

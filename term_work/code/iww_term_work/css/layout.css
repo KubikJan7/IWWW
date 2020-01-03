@@ -428,6 +428,10 @@ td a{
     background-color: #F5F5F5;
 }
 
+#book_desc_readonly:focus{
+    outline: none;
+}
+
 #book_desc_writeable{
     width: 84%;
     padding: 15px;
@@ -471,7 +475,11 @@ p a {
     text-decoration: unset;
     cursor:pointer;
 }
-
+#export-btn{
+    color: #A2C523;
+    text-decoration: unset;
+    cursor:pointer;
+}
 .color-red {
     display: inline;
     color: #FF4652;

@@ -49,14 +49,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bindParam(':language_id', $language_id["id"]);
             $stmt->bindParam(':genre_id', $genre_id["id"]);
             $stmt->execute();
-
+            $successFeedback = "Kniha byla přidána.";
         } catch (PDOException $e) {
-            if ($e->getCode() == 23000) //checks if it's exception code of duplicity
-                $errorFeedback = "<p><b class='color-red'>Databáze již obsahuje knihu se stejným ISBN!</b></p>";
-            else
-                $errorFeedback = "<p><b class='color-red'>Při importu nastaly potíže, zkuste to prosím později.</b></p>";
+            if ($e->getCode() == 23000) { //checks if it's exception code of duplicity
+                $feedbackMessage = "<p><b class='color-red'>Databáze již obsahuje knihu se stejným ISBN!</b></p>";
+                array_push($errorFeedbackArray, $feedbackMessage);
+            } else {
+                $feedbackMessage = "<p><b class='color-red'>Při importu nastaly potíže, zkuste to prosím později.</b></p>";
+                array_push($errorFeedbackArray, $feedbackMessage);
+            }
         }
-        $successFeedback = "Kniha byla přidána.";
     }
 }
 
@@ -82,7 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <input id="admin-input" type="date" name="publication_date">
     <input id="admin-input" type="number" name="page_count" placeholder="Počet stran">
     <input id="admin-input" type="text" name="binding" placeholder="Vazba [Měkká, Pevná, ...]">
-    <input id="admin-input" type="text" name="image" placeholder="Obrázek" pattern="([a-žA-Ž0-9\s_\\.\-\(\):])+(.png|.jpg|.jpeg)">
+    <input id="admin-input" type="text" name="image" placeholder="Obrázek"
+           pattern="([a-žA-Ž0-9\s_\\.\-\(\):])+(.png|.jpg|.jpeg)">
 
     <select id="custom-select" name="genre">
         <?php

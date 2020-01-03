@@ -63,84 +63,99 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (empty($errorFeedbackArray)) {
         //success
-        $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-        $conn->exec("set names utf8");
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        try {
+            $conn = CustomFunctions::createConnectionToDatabase();
 
-        $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');
+            $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');
 
-        $stmt = $conn->prepare("SELECT role.id, password FROM role, user WHERE name = :role AND user.id = :id");
-        $stmt->bindParam(':role', $_POST["role"]);
-        $stmt->bindParam(':id', $_GET["user_id"]);
-        $stmt->execute();
-        $fetched_data = $stmt->fetch();
+            $stmt = $conn->prepare("SELECT role.id, password FROM role, user WHERE name = :role AND user.id = :id");
+            $stmt->bindParam(':role', $_POST["role"]);
+            $stmt->bindParam(':id', $_GET["user_id"]);
+            $stmt->execute();
+            $fetched_data = $stmt->fetch();
 
-        $stmt = $conn->prepare("UPDATE user SET first_name=:first_name, last_name=:last_name, 
+            $stmt = $conn->prepare("UPDATE user SET first_name=:first_name, last_name=:last_name, 
                 password= :password, email= :email, phone_number=:phone_number, role_id = :role_id WHERE id= :id");
-        $stmt->bindParam(':first_name', $_POST["first_name"]);
-        $stmt->bindParam(':last_name', $_POST["last_name"]);
-        if (isset($_POST['newPasswordChB'])) //check if the checkbox for showing password field is checked
-            $stmt->bindParam(':password', $hashedPassword);
-        else
-            $stmt->bindParam(':password', $fetched_data['password']);
-        $stmt->bindParam(':email', $_POST["email"]);
-        $stmt->bindParam(':phone_number', $_POST["phone_number"]);
-        $stmt->bindParam(':role_id', $fetched_data['id']);
-        $stmt->bindParam(':id', $_GET["user_id"]);
-        $stmt->execute();
+            $stmt->bindParam(':first_name', $_POST["first_name"]);
+            $stmt->bindParam(':last_name', $_POST["last_name"]);
+            if (isset($_POST['newPasswordChB'])) //check if the checkbox for showing password field is checked
+                $stmt->bindParam(':password', $hashedPassword);
+            else
+                $stmt->bindParam(':password', $fetched_data['password']);
+            $stmt->bindParam(':email', $_POST["email"]);
+            $stmt->bindParam(':phone_number', $_POST["phone_number"]);
+            $stmt->bindParam(':role_id', $fetched_data['id']);
+            $stmt->bindParam(':id', $_GET["user_id"]);
+            $stmt->execute();
 
-        $stmt = $conn->prepare("UPDATE address SET address=:address, city=:city, 
+            $stmt = $conn->prepare("UPDATE address SET address=:address, city=:city, 
                 zip_code= :zip_code, country= :country WHERE user_id= :user_id AND type = 'primary'");
-        $stmt->bindParam(':address', $_POST["street"]);
-        $stmt->bindParam(':city', $_POST["city"]);
-        $stmt->bindParam(':zip_code', $_POST["zip_code"]);
-        $stmt->bindParam(':country', $_POST["country"]);
-        $stmt->bindParam(':user_id', $_GET["user_id"]);
-        $stmt->execute();
-
-        if (isset($_POST['deliveryChB'])) //check if the checkbox for delivery details is checked
-        {
-            $stmt = $conn->prepare(
-                "SELECT COUNT(*) FROM address WHERE address.user_id = :id AND type = 'secondary'");
-            $stmt->bindParam(':id', $_GET["user_id"]);
+            $stmt->bindParam(':address', $_POST["street"]);
+            $stmt->bindParam(':city', $_POST["city"]);
+            $stmt->bindParam(':zip_code', $_POST["zip_code"]);
+            $stmt->bindParam(':country', $_POST["country"]);
+            $stmt->bindParam(':user_id', $_GET["user_id"]);
             $stmt->execute();
-            $sec_addr = $stmt->fetch();
-            if ($sec_addr[0] == 0) { //check if secondary address does exist
-                $stmt = $conn->prepare("INSERT INTO address (address, city, zip_code, country, type, user_id)
+
+            if (isset($_POST['deliveryChB'])) //check if the checkbox for delivery details is checked
+            {
+                $stmt = $conn->prepare(
+                    "SELECT COUNT(*) FROM address WHERE address.user_id = :id AND type = 'secondary'");
+                $stmt->bindParam(':id', $_GET["user_id"]);
+                $stmt->execute();
+                $sec_addr = $stmt->fetch();
+                if ($sec_addr[0] == 0) { //check if secondary address does exist
+                    $stmt = $conn->prepare("INSERT INTO address (address, city, zip_code, country, type, user_id)
                 VALUES (:address, :city, :zip_code, :country, 'secondary', :user_id)");
-                $stmt->bindParam(':address', $_POST["street_sec"]);
-                $stmt->bindParam(':city', $_POST["city_sec"]);
-                $stmt->bindParam(':zip_code', $_POST["zip_code_sec"]);
-                $stmt->bindParam(':country', $_POST["country_sec"]);
-                $stmt->bindParam(':user_id', $_GET["user_id"]);
-                $stmt->execute();
-            } else {
-                $stmt = $conn->prepare("UPDATE address SET address=:address, city=:city, 
+                    $stmt->bindParam(':address', $_POST["street_sec"]);
+                    $stmt->bindParam(':city', $_POST["city_sec"]);
+                    $stmt->bindParam(':zip_code', $_POST["zip_code_sec"]);
+                    $stmt->bindParam(':country', $_POST["country_sec"]);
+                    $stmt->bindParam(':user_id', $_GET["user_id"]);
+                    $stmt->execute();
+                } else {
+                    $stmt = $conn->prepare("UPDATE address SET address=:address, city=:city, 
                 zip_code= :zip_code, country= :country WHERE user_id= :user_id AND type = 'secondary'");
-                $stmt->bindParam(':address', $_POST["street_sec"]);
-                $stmt->bindParam(':city', $_POST["city_sec"]);
-                $stmt->bindParam(':zip_code', $_POST["zip_code_sec"]);
-                $stmt->bindParam(':country', $_POST["country_sec"]);
-                $stmt->bindParam(':user_id', $_GET["user_id"]);
-                $stmt->execute();
-            }
-        }else{
-            $stmt = $conn->prepare(
-                "SELECT COUNT(*) FROM address WHERE address.user_id = :id AND type = 'secondary'");
-            $stmt->bindParam(':id', $_GET["user_id"]);
-            $stmt->execute();
-            $sec_addr = $stmt->fetch();
-
-            if (!$sec_addr[0] == 0) { //check if secondary address does exist
-                {
-                    $stmt = $conn->prepare("DELETE FROM address WHERE user_id = :id AND type = 'secondary'");
-                    $stmt->bindParam(":id", $_GET["user_id"]);
+                    $stmt->bindParam(':address', $_POST["street_sec"]);
+                    $stmt->bindParam(':city', $_POST["city_sec"]);
+                    $stmt->bindParam(':zip_code', $_POST["zip_code_sec"]);
+                    $stmt->bindParam(':country', $_POST["country_sec"]);
+                    $stmt->bindParam(':user_id', $_GET["user_id"]);
                     $stmt->execute();
                 }
+            } else {
+                $stmt = $conn->prepare(
+                    "SELECT COUNT(*) FROM address WHERE address.user_id = :id AND type = 'secondary'");
+                $stmt->bindParam(':id', $_GET["user_id"]);
+                $stmt->execute();
+                $sec_addr = $stmt->fetch();
+
+                if (!$sec_addr[0] == 0) { //check if secondary address does exist
+                    {
+                        $stmt = $conn->prepare("DELETE FROM address WHERE user_id = :id AND type = 'secondary'");
+                        $stmt->bindParam(":id", $_GET["user_id"]);
+                        $stmt->execute();
+                    }
+                }
+            }
+            $successFeedback = "Uživatel byl upraven.";
+        } catch (PDOException $e) {
+            if ($e->getCode() == 23000) //checks if it's exception other_code of duplicity
+            {
+                $feedbackMessage = "Uživatel s touto e-mailovou adresou již existuje!";
+                array_push($errorFeedbackArray, $feedbackMessage);
+
+                # after unsuccessful INSERT, the id sequence was still incremented
+                $stmt = $conn->prepare("ALTER TABLE user AUTO_INCREMENT = 1"); // reset the sequence
+                $stmt->execute();
+
+            } else {
+                $feedbackMessage = "Při registraci došlo k potížím, zkuste to prosím znovu!";
+                array_push($errorFeedbackArray, $feedbackMessage);
             }
         }
 
-        $successFeedback = "Uživatel byl upraven.";
+
     }
 }
 ?>
@@ -185,12 +200,12 @@ if (empty($errorFeedbackArray)) { //load origin data from database
     $phone_number = $_POST["phone_number"];
     $role = $_POST["role"];
 
-    $address = $_POST["address"];
+    $address = $_POST["street"];
     $city = $_POST["city"];
     $zip_code = $_POST["zip_code"];
     $country = $_POST["country"];
 
-    $address_sec = $_POST["address_sec"];
+    $address_sec = $_POST["street_sec"];
     $city_sec = $_POST["city_sec"];
     $zip_code_sec = $_POST["zip_code_sec"];
     $country_sec = $_POST["country_sec"];
