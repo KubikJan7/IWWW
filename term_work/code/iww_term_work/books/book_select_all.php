@@ -67,8 +67,13 @@ function createAcronym($text)
 <p>
     <a id="button_orange_border" href="<?= BASE_URL . "?page=book_management&action=book_insert" ?>">Přidat knihu</a>
     <a id="button_orange_border" onclick="openSetFilepathDialog('import')">Import knih</a>
-    <a id="button_orange_border"
-       href="<?= BASE_URL . "?page=book_management&action=book_delete_all" ?>"
-       onclick="return confirm('Opravdu si přejete pokračovat? Tímto vymažete veškerou databázi knih.')">Smazat veškeré
-        knihy</a>
+<form action="./books/book_import.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+<a id="button_orange_border"
+   href="<?= BASE_URL . "?page=book_management&action=book_delete_all" ?>"
+   onclick="return confirm('Opravdu si přejete pokračovat? Tímto vymažete veškerou databázi knih.')">Smazat veškeré
+    knihy</a>
 </p>

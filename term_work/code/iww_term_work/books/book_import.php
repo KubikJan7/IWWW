@@ -1,4 +1,6 @@
 <?php
+include "../config.php";
+include "../code/functions.php";
 if (isset($_GET["filepath"]))
     $filepath = $_GET["filepath"];
 $message = "";
@@ -15,7 +17,7 @@ $message = "";
     -->
 <?php
 // Get the contents of the JSON file
-$strJsonFileContents = @file_get_contents($filepath);
+$strJsonFileContents = @file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
 if ($strJsonFileContents == false) {
     $message = "<p><b class='color-red'>Zadejte prosím validní cestu!</b></p>";
 } else {
