@@ -1,6 +1,7 @@
 <?php
 $errorFeedbackArray = array();
 $successFeedback = "";
+$filename = "default.png";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // <editor-fold default-state="collapsed" desc="input-validation">
@@ -17,6 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($_POST["price"])) {
         $feedbackMessage = "Je vyžadována cena knihy!";
         array_push($errorFeedbackArray, $feedbackMessage);
+    }
+
+    //image validation
+    if (!empty($_FILES["image"]["name"])) {
+        $feedbackMessage = CustomFunctions::uploadPicture($_FILES["image"]);
+        if ($feedbackMessage != "")
+            array_push($errorFeedbackArray, $feedbackMessage);
+        else
+            $filename = $_FILES["image"]["name"];
     }
 // </editor-fold>
 
@@ -45,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bindParam(':description', $_POST["description"]);
             $stmt->bindParam(':page_count', $_POST["page_count"]);
             $stmt->bindParam(':binding', $_POST["binding"]);
-            $stmt->bindParam(':image', $_POST["image"]);
+            $stmt->bindParam(':image', $filename);
             $stmt->bindParam(':language_id', $language_id["id"]);
             $stmt->bindParam(':genre_id', $genre_id["id"]);
             $stmt->execute();
@@ -64,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
 
-<form id="custom-form" method="post">
+<form id="custom-form" method="post" enctype="multipart/form-data">
     <h2>Přidání knihy</h2>
     <?php
     if (!empty($errorFeedbackArray)) {
@@ -84,8 +94,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <input id="admin-input" type="date" name="publication_date">
     <input id="admin-input" type="number" name="page_count" placeholder="Počet stran">
     <input id="admin-input" type="text" name="binding" placeholder="Vazba [Měkká, Pevná, ...]">
-    <input id="admin-input" type="text" name="image" placeholder="Obrázek"
-           pattern="([a-žA-Ž0-9\s_\\.\-\(\):])+(.png|.jpg|.jpeg)">
 
     <select id="admin-select" name="genre">
         <?php
@@ -99,8 +107,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <option value="<?= $language["name"] ?>"><?= $language["name"] ?></option>
         <?php } ?>
     </select>
-    <label for="last_name"><b>Obrázek: </b></label>
-    <input type="file" name="fileToImport" id="fileToImport" accept="application/json">
+    <div id="input-file-line">
+        <label for="last_name">Obrázek titulu: </label>
+        <input id="input-file" type="file" name="image" accept="image/*">
+    </div>
     <textarea id=book_desc_writeable name="description" placeholder="Popis knihy" rows="6"></textarea>
     <br>
     <input id="custom-submit" type="submit" name="insert_book" value="Přidat">

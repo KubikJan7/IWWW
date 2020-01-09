@@ -190,6 +190,23 @@ input[type=submit], #button_orange_border{
     text-decoration: unset;
 }
 
+#input-file{
+    padding-left: 10px;
+    margin: 0;
+}
+#input-file:focus{
+    background-color: #F2FEDC;
+    outline-color: #F49268;
+}
+#input-file-line{
+    display: flex;
+    padding-bottom: 5px;
+}
+
+#update_img{
+    padding-left: 10px;
+}
+
 #import-btn{
     background-color: #A2C523;
     color: white;
@@ -206,8 +223,6 @@ input[type=submit], #button_orange_border{
     text-decoration: unset;
     cursor:pointer;
 }
-
-
 
 #admin-input{
     width: 12%;

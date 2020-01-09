@@ -1,3 +1,5 @@
+
+<h1>Bestsellery</h1>
 <div class="flex-wrap">
     <div class="card">
         <img src="./images/books/atlas_shrugged_en.jpg"/>
@@ -27,4 +29,4 @@
             vehicula. Maecenas aliquet accumsan leo.</p>
     </div>
 </div>
-
+<h1>Novinky</h1>

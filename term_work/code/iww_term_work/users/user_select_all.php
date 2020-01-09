@@ -30,7 +30,18 @@ foreach ($data_user as $row_user) {
         if ($row_user["user_id"] == $row_address["user_id"])
             $address = $row_address;
     }
-
+    // convert the role output to czech
+    switch ($row_user["role"]) {
+        case "administrator":
+            $role = "Administrátor";
+            break;
+        case "employee":
+            $role = "Zaměstnanec";
+            break;
+        case "customer":
+            $role = "Zákazník";
+            break;
+    }
     echo '   
    <tr >
     <td >' . $row_user["user_id"] . '</td >
@@ -38,7 +49,7 @@ foreach ($data_user as $row_user) {
     <td >' . $row_user["last_name"] . '</td >
     <td >' . $row_user["email"] . '</td >
     <td >' . $row_user["phone_number"] . '</td >
-    <td >' . $row_user["role"] . '</td >
+    <td >' . $role . '</td >
     <td >' . $row_user["address"] . "<br> " . $row_user["city"] . " " . $row_user["zip_code"] . ", " . createAcronym($row_user["country"]) . '</td >
     <td >' . ((isset($address)) ? ($address["address"] . "<br> " . $address["city"] . " " . $address["zip_code"] . ", " . createAcronym($address["country"])) : (" ╶ || ╴ ")) . '</td >
     <td>
@@ -50,18 +61,20 @@ foreach ($data_user as $row_user) {
 }
 
 echo '</table>';
-function createAcronym($text){
+function createAcronym($text)
+{
     $words = explode(" ", $text);
     $acronym = "";
 
     foreach ($words as $w) {
         $acronym .= strtoupper($w[0]);
         // a letter with diacritics is considered as 2 characters: Č -> c + ˇ
-        if(mb_detect_encoding($w[0]) == "UTF-8") // ordinary letters are in ASCII
+        if (mb_detect_encoding($w[0]) == "UTF-8") // ordinary letters are in ASCII
             $acronym .= strtoupper($w[1]); // add one more character
     }
     return $acronym;
 }
+
 ?>
 
 <a id="button_orange_border" href="<?= BASE_URL . "?page=user_management&action=user_insert" ?>">Přidat uživatele</a>

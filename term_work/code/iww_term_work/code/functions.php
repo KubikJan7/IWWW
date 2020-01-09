@@ -66,11 +66,51 @@ class CustomFunctions
         $conn = self::createConnectionToDatabase();
         return $conn->query("SELECT name FROM genre")->fetchAll();
     }
-    public static function getAllBookLanguages(){
+
+    public static function getAllBookLanguages()
+    {
         $conn = self::createConnectionToDatabase();
         return $conn->query("SELECT name FROM language")->fetchAll();
     }
 
+    public static function uploadPicture($file)
+    {
+        /*
+    ***************************************************************************************
+    *    Credit: https://www.w3schools.com/php/php_file_upload.asp
+    ****************************************************************************************
+    */
+        $target_dir = "./images/books/";
+        $target_file = $target_dir . basename($file["name"]);
+        $message = "";
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        // Check if image file is a actual image or fake image
+        if (isset($_POST["submit"])) {
+            $check = getimagesize($file["tmp_name"]);
+            if ($check == false) {
+                $message = "Vybraný soubor musí být obrázek.";
+            }
+        }
+        // Check file size
+        if ($file["size"] > 150000) {
+            $message = "Zadaný obrázek je příliš veliký.";
+        }
+        // Allow certain file formats
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+            $message = "Pro nahrání obrázků jsou povoleny pouze formáty typu JPG, JPEG a PNG.";
+        }
+        // Check if $uploadOk is set to 0 by an error
+        if (!empty($message))
+            return $message;
+
+        // Check if file already exists
+        if (!file_exists($target_file))
+            // try to upload file
+            if (!move_uploaded_file($file["tmp_name"], $target_file)) {
+                $message = "Je nám líto, při nahrávání obrázku došlo k potížím.";
+            }
+        return $message;
+    }
 }
 
 ?>
