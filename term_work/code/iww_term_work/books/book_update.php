@@ -137,13 +137,13 @@ if (empty($errorFeedbackArray)) { //load origin data from database
     <input id="admin-input" type="text" name="binding" placeholder="Vazba" value="<?= $binding; ?>">
     <input id="admin-input" type="text" name="image" placeholder="Obrázek" value="<?= $image; ?>" pattern="([a-žA-Ž0-9\s_\\.\-\(\):])+(.png|.jpg|.jpeg)">
 
-    <select id="custom-select" name="genre">
+    <select id="admin-select" name="genre">
         <?php
         foreach (CustomFunctions::getAllBookGenres() AS $genre_row) { ?>
             <option value="<?= $genre_row["name"] ?>"<?php if ($genre_row["name"] == $genre) echo "SELECTED"; ?>><?= $genre_row["name"] ?></option>
         <?php } ?>
     </select>
-    <select id="custom-select" name="language">
+    <select id="admin-select" name="language">
         <?php
         foreach (CustomFunctions::getAllBookLanguages() AS $language_row) { ?>
             <option value="<?= $language_row["name"] ?>"<?php if ($language_row["name"] == $language) echo "SELECTED"; ?>><?= $language_row["name"] ?></option>

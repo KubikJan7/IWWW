@@ -8,7 +8,7 @@ if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPasswor
     $hashedPassword = crypt($_POST["loginPassword"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk'); // hash the password from login
 
     //get user by email and password
-    $stmt = $conn->prepare("SELECT id, first_name, last_name, email, role_id FROM user 
+    $stmt = $conn->prepare("SELECT id, first_name, last_name, email, role FROM user 
                                       WHERE email= :email and password = :password");
     $stmt->bindParam(':email', $_POST["loginMail"]);
     $stmt->bindParam(':password', $hashedPassword);
@@ -22,7 +22,7 @@ if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPasswor
         $_SESSION["first_name"] = $user["first_name"];
         $_SESSION["last_name"] = $user["last_name"];
         $_SESSION["email"] = $user["email"];
-        $_SESSION["role_id"] = $user["role_id"];
+        $_SESSION["role"] = $user["role"];
         header('Location: ' . BASE_URL);
     }
 

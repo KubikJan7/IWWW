@@ -20,7 +20,7 @@ echo '
     <th>Vazba</th>
     <th>Jazyk</th>
     <th>Žánr</th>
-    <th>Název obrázku</th>
+    <th>Obrázek</th>
     <th>Popis</th>
     <th>Akce</th>
   </tr>';
@@ -38,7 +38,7 @@ foreach ($data_book as $row_book) {
     <td >' . $row_book["binding"] . '</td >
     <td >' . $row_book["language"] . '</td >
     <td >' . $row_book["genre"] . '</td >
-    <td >' . $row_book["image"] . '</td >
+    <td ><img src="./images/books/'.$row_book["image"].'" alt="'.$row_book["name"].'" width="50"></td >
     <td id="book_desc_cell"><textarea id="book_desc_readonly" rows="6" cols="55" readonly>' . $row_book["description"] . '</textarea></td >
     <td>
         <a href="?page=book_management&action=book_update&isbn=' . $row_book["isbn"] . '">Upravit</a>
@@ -66,14 +66,9 @@ function createAcronym($text)
 ?>
 <p>
     <a id="button_orange_border" href="<?= BASE_URL . "?page=book_management&action=book_insert" ?>">Přidat knihu</a>
-    <a id="button_orange_border" onclick="openSetFilepathDialog('import')">Import knih</a>
-<form action="./books/book_import.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>
-<a id="button_orange_border"
-   href="<?= BASE_URL . "?page=book_management&action=book_delete_all" ?>"
-   onclick="return confirm('Opravdu si přejete pokračovat? Tímto vymažete veškerou databázi knih.')">Smazat veškeré
-    knihy</a>
+    <a id="button_orange_border" href="<?= BASE_URL . "?page=book_management&action=book_import"?>">Import knih</a>
+    <a id="button_orange_border"
+       href="<?= BASE_URL . "?page=book_management&action=book_delete_all" ?>"
+       onclick="return confirm('Opravdu si přejete pokračovat? Tímto vymažete veškerou databázi knih.')">Smazat veškeré
+        knihy</a>
 </p>

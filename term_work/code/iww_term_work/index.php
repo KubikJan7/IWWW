@@ -25,7 +25,7 @@ $cartEmpty = true;
     <nav id="nav">
 
         <?php if (!empty($_SESSION["user_id"])) { ?> <!-- Check if the user is logged in -->
-            <?php if ($_SESSION["role_id"] == 1) { ?> <!--Check if it's an admin -->
+            <?php if ($_SESSION["role"] == "administrator") { ?> <!--Check if it's an admin -->
                 <a href="<?= BASE_URL . "?page=book_management" ?>"><i class="fa fa-book"></i> Správa knih</a>
                 <a href="<?= BASE_URL . "?page=user_management" ?>"><i class="fa fa-user"></i> Správa uživatelů</a>
             <?php } ?>
@@ -41,7 +41,7 @@ $cartEmpty = true;
 </header>
 
 <section id="hero">
-    <span id="category-btn" onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Kategorie</span>
+    <span id="category-btn" onclick="location.href='<?= BASE_URL . "?page=book_selection"?>'" onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Kategorie</span>
     <div id="search-container">
         <form action="/action_page.php">
             <input type="search" placeholder="Zadejte název knihy, autora..." name="search">
@@ -118,7 +118,9 @@ $cartEmpty = true;
         </p>
     </div>
     <div>
-        <p><a id="export-btn" onclick="openSetFilepathDialog('export')">Export knih</a></p>
+        <p><a id="export-btn" onclick="return confirm('Informace o knihách budou staženy ve formátu JSON. Přejete si pokračovat?')"
+              href="<?= BASE_URL . "?action=book_export&message=<p><b class='color-green'>Soubor byl stažen.</b></p>"?>"
+              >Export knih</a></p>
     </div>
 </footer>
 </body>

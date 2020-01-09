@@ -68,19 +68,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');
 
-            $stmt = $conn->prepare("SELECT id FROM role WHERE name = :role LIMIT 1");
-            $stmt->bindParam(':role', $_POST["role"]);
-            $stmt->execute();
-            $role_id = $stmt->fetch();
-
-            $stmt = $conn->prepare("INSERT INTO user (first_name, last_name, password, email, phone_number, role_id) 
-            VALUES (:first_name, :last_name, :password, :email, :phone_number, :role_id)");
+            $stmt = $conn->prepare("INSERT INTO user (first_name, last_name, password, email, phone_number, role) 
+            VALUES (:first_name, :last_name, :password, :email, :phone_number, :role)");
             $stmt->bindParam(':first_name', $_POST["first_name"]);
             $stmt->bindParam(':last_name', $_POST["last_name"]);
             $stmt->bindParam(':password', $hashedPassword);
             $stmt->bindParam(':email', $_POST["email"]);
             $stmt->bindParam(':phone_number', $_POST["phone_number"]);
-            $stmt->bindParam(':role_id', $role_id[0]);
+            $stmt->bindParam(':role', $_POST["role"]);
             $stmt->execute();
             $user_id = $conn->lastInsertId();
 
@@ -146,16 +141,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            pattern="[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$">
     <input id="admin-input" type="tel" name="phone_number" placeholder="Telefonní číslo"
            pattern="(([0-9]{3} [0-9]{3} [0-9]{3})|([0-9]{3}[0-9]{3}[0-9]{3}))">
-    <select id="custom-select" name="role">
-        <option value="Administrátor">Administrátor</option>
-        <option value="Zaměstnanec">Zaměstnanec</option>
-        <option value="Zákazník">Zákazník</option>
+    <select id="admin-select" name="role">
+        <option value="administrator">Administrátor</option>
+        <option value="employee">Zaměstnanec</option>
+        <option value="customer">Zákazník</option>
     </select>
     <br>
     <input id="admin-input" type="text" name="street" placeholder="Ulice">
     <input id="admin-input" type="text" name="city" placeholder="Město">
     <input id="admin-input" type="text" name="zip_code" placeholder="PSČ" pattern="(([0-9]{3} [0-9]{2})|([0-9]{5}))">
-    <select id="custom-select" name="country">
+    <select id="admin-select" name="country">
         <option value="Česká republika">Česká republika</option>
         <option value="Slovenská republika">Slovenská republika</option>
     </select>
@@ -171,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input id="admin-input" type="text" name="city_sec" placeholder="Město">
         <input id="admin-input" type="text" name="zip_code_sec" placeholder="PSČ"
                pattern="(([0-9]{3} [0-9]{2})|([0-9]{5}))">
-        <select id="custom-select" name="country_sec">
+        <select id="admin-select" name="country_sec">
             <option value="Česká republika">Česká republika</option>
             <option value="Slovenská republika">Slovenská republika</option>
         </select>

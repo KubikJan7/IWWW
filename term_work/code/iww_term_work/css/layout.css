@@ -171,6 +171,14 @@ input[type=tel]:focus, input[type=email]:focus, input[type=text]:focus, input[ty
     outline-color: #F49268;
 }
 
+input[type=file]{
+    width: auto;
+    padding-top:15px;
+    margin: 10px 0 10px 0;
+    display: inline-flex;
+    border: none;
+}
+
 input[type=submit], #button_orange_border{
     background-color: #F49268;
     color: white;
@@ -182,19 +190,25 @@ input[type=submit], #button_orange_border{
     text-decoration: unset;
 }
 
-div select {
-    width: 70%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-flex;
+#import-btn{
+    background-color: #A2C523;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
     border: none;
-    background: white;
+    cursor: pointer;
+    width: 8.5%;
+    text-decoration: unset;
 }
 
-div select :focus{
-    background-color: #F2FEDC;
-    outline-color: #F49268;
+#export-btn{
+    color: #A2C523;
+    text-decoration: unset;
+    cursor:pointer;
 }
+
+
+
 #admin-input{
     width: 12%;
     padding: 15px;
@@ -223,8 +237,8 @@ div select :focus{
     width: 5%;
 }
 
-#custom-select{
-    width: 14.1%;
+#admin-select{
+    width: 12%;
     padding: 15px;
     margin: 5px 0 10px 0;
     display: inline-flex;
@@ -232,12 +246,12 @@ div select :focus{
     background: white;
 }
 
-#custom-select a {
+#admin-select a{
     background-color: #F2FEDC;
     outline-color: #F49268;
 }
 
-#custom-select:focus{
+#admin-select:focus{
     background-color: #F2FEDC;
     outline-color: #F49268;
 }
@@ -253,6 +267,7 @@ div select :focus{
     width: 45%;
 }
 
+
 #custom-form-line {
     display: flex;
     justify-content: space-between;
@@ -262,6 +277,20 @@ div select :focus{
     padding: 15px;
     margin: 5px 70px 22px 20px;
     display: inline-flex;
+}
+
+div select {
+    width: 65%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-flex;
+    border: none;
+    background: white;
+}
+
+div select:focus{
+    background-color: #F2FEDC;
+    outline-color: #F49268;
 }
 
 .full-width-wrapper, main {
@@ -425,6 +454,10 @@ td a{
     padding-right: 20px;
 }
 
+td img{
+    margin-left: 7%;
+}
+
 #book_desc_readonly{
     border: none;
     background-color: #F5F5F5;
@@ -435,7 +468,7 @@ td a{
 }
 
 #book_desc_writeable{
-    width: 84%;
+    width: 98%;
     padding: 15px;
     margin: 0 0 22px 0;
     display: inline-flex;
@@ -477,11 +510,7 @@ p a {
     text-decoration: unset;
     cursor:pointer;
 }
-#export-btn{
-    color: #A2C523;
-    text-decoration: unset;
-    cursor:pointer;
-}
+
 .color-red {
     display: inline;
     color: #FF4652;

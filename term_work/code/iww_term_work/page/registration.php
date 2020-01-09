@@ -1,5 +1,4 @@
 <?php
-require('./code/functions.php');
 
 $message = "";
 $success = false;
@@ -26,8 +25,8 @@ if (isset($_POST['registration'])) {
                 $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');  //hash of the user password
 
                 // prepare sql and bind parameters
-                $stmt = $conn->prepare("INSERT INTO user (first_name, last_name, password, email, phone_number, role_id) 
-            VALUES (:first_name, :last_name, :password, :email, :phone_number, 3)");
+                $stmt = $conn->prepare("INSERT INTO user (first_name, last_name, password, email, phone_number, role) 
+            VALUES (:first_name, :last_name, :password, :email, :phone_number, 'customer')");
                 $stmt->bindParam(':first_name', $_POST["first_name"]);
                 $stmt->bindParam(':last_name', $_POST["last_name"]);
                 $stmt->bindParam(':password', $hashedPassword);
@@ -160,7 +159,7 @@ if (isset($_POST['registration'])) {
                     </div>
                     <div id="custom-form-line">
                         <label for="country"><b>Země</b></label>
-                        <select name="country">
+                        <select id="registration" name="country">
                             <option value="Česká republika">Česká republika</option>
                             <option value="Slovenská republika">Slovenská republika</option>
                         </select>
@@ -198,7 +197,7 @@ if (isset($_POST['registration'])) {
                         </div>
                         <div id="custom-form-line">
                             <label for="country"><b>Země</b></label>
-                            <select name="country_sec">
+                            <select id="registration" name="country_sec">
                                 <option value="Česká republika">Česká republika</option>
                                 <option value="Slovenská republika">Slovenská republika</option>
                             </select>

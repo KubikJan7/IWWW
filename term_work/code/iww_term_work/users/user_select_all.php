@@ -3,8 +3,7 @@ require_once "./code/functions.php";
 $conn = CustomFunctions::createConnectionToDatabase();
 
 $data_user = $conn->query(
-    "SELECT *, user.id AS user_id FROM user, role, address WHERE role_id = role.id 
-                    AND address.user_id = user.id AND type = 'primary'")->fetchAll();
+    "SELECT *, user.id AS user_id FROM user, address WHERE address.user_id = user.id AND type = 'primary'")->fetchAll();
 $data_address = $conn->query(
     "SELECT user.id AS user_id, address, city, zip_code, country FROM address, user
                     WHERE address.user_id = user.id AND type = 'secondary'")->fetchAll();
@@ -39,7 +38,7 @@ foreach ($data_user as $row_user) {
     <td >' . $row_user["last_name"] . '</td >
     <td >' . $row_user["email"] . '</td >
     <td >' . $row_user["phone_number"] . '</td >
-    <td >' . $row_user["name"] . '</td >
+    <td >' . $row_user["role"] . '</td >
     <td >' . $row_user["address"] . "<br> " . $row_user["city"] . " " . $row_user["zip_code"] . ", " . createAcronym($row_user["country"]) . '</td >
     <td >' . ((isset($address)) ? ($address["address"] . "<br> " . $address["city"] . " " . $address["zip_code"] . ", " . createAcronym($address["country"])) : (" ╶ || ╴ ")) . '</td >
     <td>

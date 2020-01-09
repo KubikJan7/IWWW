@@ -68,14 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');
 
-            $stmt = $conn->prepare("SELECT role.id, password FROM role, user WHERE name = :role AND user.id = :id");
-            $stmt->bindParam(':role', $_POST["role"]);
+            $stmt = $conn->prepare("SELECT password FROM user WHERE user.id = :id");
             $stmt->bindParam(':id', $_GET["user_id"]);
             $stmt->execute();
             $fetched_data = $stmt->fetch();
 
             $stmt = $conn->prepare("UPDATE user SET first_name=:first_name, last_name=:last_name, 
-                password= :password, email= :email, phone_number=:phone_number, role_id = :role_id WHERE id= :id");
+                password= :password, email= :email, phone_number=:phone_number, role = :role WHERE id= :id");
             $stmt->bindParam(':first_name', $_POST["first_name"]);
             $stmt->bindParam(':last_name', $_POST["last_name"]);
             if (isset($_POST['newPasswordChB'])) //check if the checkbox for showing password field is checked
@@ -84,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt->bindParam(':password', $fetched_data['password']);
             $stmt->bindParam(':email', $_POST["email"]);
             $stmt->bindParam(':phone_number', $_POST["phone_number"]);
-            $stmt->bindParam(':role_id', $fetched_data['id']);
+            $stmt->bindParam(':role', $_POST["role"]);
             $stmt->bindParam(':id', $_GET["user_id"]);
             $stmt->execute();
 
@@ -164,8 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if (empty($errorFeedbackArray)) { //load origin data from database
     $conn = CustomFunctions::createConnectionToDatabase();
 
-    $stmt = $conn->prepare("SELECT * FROM user, role, address WHERE user.id = :id AND role_id = role.id 
-                    AND address.user_id = user.id AND type = 'primary'");
+    $stmt = $conn->prepare("SELECT * FROM user, address WHERE user.id = :id AND address.user_id = user.id AND type = 'primary'");
     $stmt->bindParam(':id', $_GET["user_id"]);
     $stmt->execute();
     $user = $stmt->fetch();
@@ -180,7 +178,7 @@ if (empty($errorFeedbackArray)) { //load origin data from database
     $last_name = $user["last_name"];
     $email = $user["email"];
     $phone_number = $user["phone_number"];
-    $role = $user["name"];
+    $role = $user["role"];
 
     $address = $user["address"];
     $city = $user["city"];
@@ -233,17 +231,17 @@ if (empty($errorFeedbackArray)) { //load origin data from database
                pattern="[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$" value="<?= $email; ?>">
         <input id="admin-input" type="tel" name="phone_number" placeholder="Telefonní číslo"
                pattern="(([0-9]{3} [0-9]{3} [0-9]{3})|([0-9]{3}[0-9]{3}[0-9]{3}))" value="<?= $phone_number; ?>">
-        <select id="custom-select" name="role">
-            <option value="Administrátor" <?php if ($role == "Administrátor") echo "SELECTED"; ?>>Administrátor</option>
-            <option value="Zaměstnanec" <?php if ($role == "Zaměstnanec") echo "SELECTED"; ?>>Zaměstnanec</option>
-            <option value="Zákazník" <?php if ($role == "Zákazník") echo "SELECTED"; ?>>Zákazník</option>
+        <select id="admin-select" name="role">
+            <option value="administrator" <?php if ($role == "administrator") echo "SELECTED"; ?>>Administrátor</option>
+            <option value="employee" <?php if ($role == "employee") echo "SELECTED"; ?>>Zaměstnanec</option>
+            <option value="customer" <?php if ($role == "customer") echo "SELECTED"; ?>>Zákazník</option>
         </select>
         <br>
         <input id="admin-input" type="text" name="street" placeholder="Ulice" value="<?= $address; ?>">
         <input id="admin-input" type="text" name="city" placeholder="Město" value="<?= $city; ?>">
         <input id="admin-input" type="text" name="zip_code" placeholder="PSČ" pattern="(([0-9]{3} [0-9]{2})|([0-9]{5}))"
                value="<?= $zip_code; ?>">
-        <select id="custom-select" name="country">
+        <select id="admin-select" name="country">
             <option value="Česká republika" <?php if ($country == "Česká republika") echo "SELECTED"; ?>>Česká
                 republika
             </option>
@@ -266,7 +264,7 @@ if (empty($errorFeedbackArray)) { //load origin data from database
             <input id="admin-input" type="text" name="city_sec" placeholder="Město" value="<?= $city_sec; ?>">
             <input id="admin-input" type="text" name="zip_code_sec" placeholder="PSČ"
                    pattern="(([0-9]{3} [0-9]{2})|([0-9]{5}))" value="<?= $zip_code_sec; ?>">
-            <select id="custom-select" name="country_sec">
+            <select id="admin-select" name="country_sec">
                 <option value="Česká republika" <?php if ($country_sec == "Česká republika") echo "SELECTED"; ?>>Česká
                     republika
                 </option>

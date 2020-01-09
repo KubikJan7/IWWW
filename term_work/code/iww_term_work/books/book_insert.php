@@ -87,18 +87,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <input id="admin-input" type="text" name="image" placeholder="Obrázek"
            pattern="([a-žA-Ž0-9\s_\\.\-\(\):])+(.png|.jpg|.jpeg)">
 
-    <select id="custom-select" name="genre">
+    <select id="admin-select" name="genre">
         <?php
         foreach (CustomFunctions::getAllBookGenres() AS $genre) { ?>
             <option value="<?= $genre["name"] ?>"><?= $genre["name"] ?></option>
         <?php } ?>
     </select>
-    <select id="custom-select" name="language">
+    <select id="admin-select" name="language">
         <?php
         foreach (CustomFunctions::getAllBookLanguages() AS $language) { ?>
             <option value="<?= $language["name"] ?>"><?= $language["name"] ?></option>
         <?php } ?>
     </select>
+    <label for="last_name"><b>Obrázek: </b></label>
+    <input type="file" name="fileToImport" id="fileToImport" accept="application/json">
     <textarea id=book_desc_writeable name="description" placeholder="Popis knihy" rows="6"></textarea>
     <br>
     <input id="custom-submit" type="submit" name="insert_book" value="Přidat">

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9f3e0d1-9fc3-4681-92c4-09604d289070" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +28,30 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bookworm_database: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="bookworm_database: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="book: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="term_work: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+      </path>
     </expand>
     <select />
   </component>
@@ -40,6 +63,11 @@
     </option>
   </component>
   <component name="ProjectId" id="1VHUw2AQK86kJImfb35d208xAht" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -53,17 +81,22 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JSON" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Software\XAMPP\htdocs\IWWW\Term_work\iww_term_work\books" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -83,12 +116,57 @@
       <workItem from="1577317561864" duration="12556000" />
       <workItem from="1577367074236" duration="24574000" />
       <workItem from="1577449479204" duration="3033000" />
-      <workItem from="1577464825524" duration="22782000" />
-      <workItem from="1578299446322" duration="2418000" />
+      <workItem from="1577464825524" duration="22634000" />
+      <workItem from="1577527941205" duration="22869000" />
+      <workItem from="1577619091485" duration="16770000" />
+      <workItem from="1577638703570" duration="5623000" />
+      <workItem from="1577662511500" duration="8124000" />
+      <workItem from="1577716099303" duration="14094000" />
+      <workItem from="1577746281874" duration="19801000" />
+      <workItem from="1577789904674" duration="23033000" />
+      <workItem from="1577882935135" duration="39846000" />
+      <workItem from="1577967852275" duration="37098000" />
+      <workItem from="1578052431926" duration="10423000" />
+      <workItem from="1578401918161" duration="3889000" />
+      <workItem from="1578473581834" duration="41400000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1293" height="295" key="GridCell.Tab.0.bottom" timestamp="1578052656547">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1293" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578052656547" />
+    <state width="1293" height="295" key="GridCell.Tab.0.center" timestamp="1578052656547">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1293" height="295" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578052656547" />
+    <state width="1293" height="295" key="GridCell.Tab.0.left" timestamp="1578052656546">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1293" height="295" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578052656546" />
+    <state width="1293" height="295" key="GridCell.Tab.0.right" timestamp="1578052656547">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1293" height="295" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578052656547" />
+    <state x="794" y="464" key="NewPhpFileDialog" timestamp="1578516852416">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="794" y="464" key="NewPhpFileDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578516852416" />
+    <state x="461" y="183" key="SettingsEditor" timestamp="1577800989242">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="461" y="183" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1577800989242" />
+    <state x="859" y="431" width="326" height="234" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1578446149623">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="859" y="431" width="326" height="234" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578446149623" />
+    <state x="684" y="189" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1578495329220">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="684" y="189" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578495329220" />
   </component>
 </project>

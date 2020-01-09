@@ -1,9 +1,8 @@
 <?php
-require_once "./code/functions.php";
 
-if (isset($_GET["filepath"]))
-    $filepath = $_GET["filepath"];
+require_once "./code/functions.php";
 $message = "";
+
 // save data to database
 $conn = CustomFunctions::createConnectionToDatabase();
 
@@ -12,12 +11,11 @@ $stmt = $conn->prepare("SELECT isbn,book.name,author,price, publication_date, de
 $stmt->execute();
 $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if (!$filepath == "") {
-    $file = fopen($filepath, 'w');
-    fwrite($file, json_encode($books, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    fclose($file);
+$filename="book_export.json";
+$json = json_encode($books, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
-    echo "<p><b class='color-green'>Knihy byly uloženy do $filepath</b></p>";
-} else
-    echo "<p><b class='color-red'>Zadejte prosím validní cestu!</b></p>";
-
+header("Content-Disposition: attachment; filename=".basename($filename).";");
+header('Content-type: application/json');
+ob_clean();
+echo $json;
+exit();
