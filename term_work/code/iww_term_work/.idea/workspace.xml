@@ -130,6 +130,7 @@
       <workItem from="1578401918161" duration="3889000" />
       <workItem from="1578473581834" duration="41400000" />
       <workItem from="1578561749301" duration="20859000" />
+      <workItem from="1578649676051" duration="27797000" />
     </task>
     <servers />
   </component>
@@ -153,10 +154,14 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1293" height="295" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578052656547" />
-    <state x="794" y="464" key="NewPhpFileDialog" timestamp="1578516852416">
+    <state x="697" y="355" key="NewPhpClassDialog" timestamp="1578673182032">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="794" y="464" key="NewPhpFileDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578516852416" />
+    <state x="697" y="355" key="NewPhpClassDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578673182032" />
+    <state x="794" y="464" key="NewPhpFileDialog" timestamp="1578673190475">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="794" y="464" key="NewPhpFileDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1578673190475" />
     <state x="461" y="183" key="SettingsEditor" timestamp="1577800989242">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

@@ -1,5 +1,5 @@
 <?php
-$conn = CustomFunctions::createConnectionToDatabase();
+$conn = Connection::getPdoInstance();
 $stmt = $conn->prepare("DELETE FROM book;");
 $stmt->execute();
 

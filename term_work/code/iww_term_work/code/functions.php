@@ -49,28 +49,19 @@
     }
 </script>
 <?php
-
+require_once "./class/Connection.php";
 class CustomFunctions
 {
-
-    public static function createConnectionToDatabase()
-    {
-        $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD);
-        $conn->exec("set names utf8");
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $conn;
-    }
-
     public static function getAllBookGenres()
     {
-        $conn = self::createConnectionToDatabase();
-        return $conn->query("SELECT name FROM genre")->fetchAll();
+        $conn = Connection::getPdoInstance();
+        return $conn->query("SELECT id, name FROM genre")->fetchAll();
     }
 
     public static function getAllBookLanguages()
     {
-        $conn = self::createConnectionToDatabase();
-        return $conn->query("SELECT name FROM language")->fetchAll();
+        $conn = Connection::getPdoInstance();
+        return $conn->query("SELECT id, name FROM language")->fetchAll();
     }
 
     public static function uploadPicture($file)

@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($errorFeedbackArray)) {
         //success
         try {
-            $conn = CustomFunctions::createConnectionToDatabase();
+            $conn = Connection::getPdoInstance();
 
             $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');
 

@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($errorFeedbackArray)) {
         // save data to database
         try {
-            $conn = CustomFunctions::createConnectionToDatabase();
+            $conn = Connection::getPdoInstance();
 
             $stmt = $conn->prepare("SELECT genre.id FROM genre WHERE genre.name = :genre_name;");
             $stmt->bindParam(':genre_name', $_POST["genre"]);

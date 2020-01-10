@@ -315,48 +315,63 @@ div select:focus{
 }
 
 .flex-wrap {
+    max-width: 1100px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    padding-top: 10px;
+    margin:auto;
 }
 
 .card {
-    text-align: left;
-    width: 280px;
-    min-height: 100px;
-    padding: 10px;
-    margin: 5px;
+    max-width: 150px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    font-family: Arial, serif;
 }
 
 .card > img {
-    height: 100px;
+    display: block;
+    height: 220px;
     background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #4a4a4a;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card > p {
     text-align: justify;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
-
+#book-img:hover + #book-title{
+    color: #FF4C54;
+    transition: 0.5s;
+}
 .card > a {
-    width: 100%;
-    background-color: #453328;
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    transition: 1s;
-    border: 1px solid rgb(60, 64, 60);
+    color: #1D3800;
 }
 
 .card > a:hover {
-    background-color: rgba(204, 208, 204, 0.91);
-    color: #333333;
+    color: #FF4C54;
+    transition: 0.5s;
+}
+
+#book_to_cart_btn{
+    width: 100%;
+    background-color: #F49268;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: space-evenly;
+    font-size: 14px;
+    box-shadow: black;
+}
+
+#book_to_cart_btn:hover{
+    background-color: #B75E38;
 }
 
 #cart-section {
@@ -548,4 +563,16 @@ p a {
 
 #center{
     text-align:  center;
+}
+
+.cut-text{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 150px;
+    white-space: nowrap;
+}
+
+.cut-text:hover{
+    overflow: visible;
+    white-space: normal;
 }

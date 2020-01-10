@@ -1,9 +1,10 @@
 <?php
-require_once "./code/functions.php";
+require_once "./class/Connection.php";
+
 if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPassword"])) {
 
     //connect to database
-    $conn = CustomFunctions::createConnectionToDatabase();
+    $conn = Connection::getPdoInstance();
 
     $hashedPassword = crypt($_POST["loginPassword"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk'); // hash the password from login
 

@@ -1,5 +1,5 @@
 <?php
-$conn = CustomFunctions::createConnectionToDatabase();
+$conn = Connection::getPdoInstance();
 
 $stmt = $conn->prepare("DELETE FROM address WHERE user_id = :id; 
                                   DELETE FROM user WHERE id = :id;");

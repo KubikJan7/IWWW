@@ -1,11 +1,12 @@
 <?php
 require_once "./code/functions.php";
+require_once "./class/Connection.php";
+require_once "./class/BookRepository.php";
 
-$conn = CustomFunctions::createConnectionToDatabase();
+$conn = Connection::getPdoInstance();
 
-$data_book = $conn->query(
-    "SELECT isbn,book.name,author,price, publication_date, description, page_count, binding, 
-            image, language.name AS language , genre.name AS genre FROM book, language, genre WHERE language_id=language.id AND genre_id= genre.id")->fetchAll();
+$bookRepo = new BookRepository(Connection::getPdoInstance());
+$data_book = $bookRepo->getAllBooks();
 
 echo '<table>';
 

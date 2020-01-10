@@ -1,6 +1,6 @@
 <?php
 require_once "./code/functions.php";
-$conn = CustomFunctions::createConnectionToDatabase();
+$conn = Connection::getPdoInstance();
 
 $data_user = $conn->query(
     "SELECT *, user.id AS user_id FROM user, address WHERE address.user_id = user.id AND type = 'primary'")->fetchAll();

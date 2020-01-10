@@ -20,7 +20,7 @@ if (isset($_POST['registration'])) {
             $message = "Zadaná hesla se neshodují!";
         else
             try {
-                $conn = CustomFunctions::createConnectionToDatabase();
+                $conn = Connection::getPdoInstance();
 
                 $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');  //hash of the user password
 

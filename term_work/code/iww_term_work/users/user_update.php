@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($errorFeedbackArray)) {
         //success
         try {
-            $conn = CustomFunctions::createConnectionToDatabase();
+            $conn = Connection::getPdoInstance();
 
             $hashedPassword = crypt($_POST["password"], 'sdfjsdnmvcmv.xcvuesfsdfdsljk');
 
@@ -161,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <?php
 if (empty($errorFeedbackArray)) { //load origin data from database
-    $conn = CustomFunctions::createConnectionToDatabase();
+    $conn = Connection::getPdoInstance();
 
     $stmt = $conn->prepare("SELECT * FROM user, address WHERE user.id = :id AND address.user_id = user.id AND type = 'primary'");
     $stmt->bindParam(':id', $_GET["user_id"]);

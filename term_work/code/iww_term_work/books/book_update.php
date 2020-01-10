@@ -1,8 +1,10 @@
 <?php
 $errorFeedbackArray = array();
 $successFeedback = "";
+$bookRepo = new BookRepository(Connection::getPdoInstance());
+$image = $bookRepo->getImageByISBN($_GET["isbn"]);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $image = "default.png";
 // <editor-fold default-state="collapsed" desc="input-validation">
     if (empty($_POST["isbn"])) {
         $feedbackMessage = "Je vyžadován kód ISBN!";
@@ -32,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($errorFeedbackArray)) {
         // save data to database
         try {
-            $conn = CustomFunctions::createConnectionToDatabase();
+            $conn = Connection::getPdoInstance();
 
             $stmt = $conn->prepare("SELECT genre.id FROM genre WHERE genre.name = :genre_name;");
             $stmt->bindParam(':genre_name', $_POST["genre"]);
@@ -86,13 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <?php
 if (empty($errorFeedbackArray)) { //load origin data from database
-    $conn = CustomFunctions::createConnectionToDatabase();
+    $conn = Connection::getPdoInstance();
 
-    $stmt = $conn->prepare("SELECT isbn,book.name,author,price, publication_date, description, page_count, binding, 
-            image, language.name AS language , genre.name AS genre FROM book, language, genre WHERE language_id=language.id AND genre_id= genre.id AND isbn=:isbn");
-    $stmt->bindParam(':isbn', $_GET["isbn"]);
-    $stmt->execute();
-    $book = $stmt->fetch();
+    $book = $bookRepo->getByISBN($_GET["isbn"]);
 
     $isbn = $book["isbn"];
     $name = $book["name"];
@@ -103,7 +101,6 @@ if (empty($errorFeedbackArray)) { //load origin data from database
     $description = $book["description"];
     $page_count = $book["page_count"];
     $binding = $book["binding"];
-    $image = $book["image"];
     $language = $book["language"];
     $genre = $book["genre"];
 
@@ -117,7 +114,6 @@ if (empty($errorFeedbackArray)) { //load origin data from database
     $description = $_POST["description"];
     $page_count = $_POST["page_count"];
     $binding = $_POST["binding"];
-    $image = $_FILES["image"]["name"];
     $language = $_POST["language"];
     $genre = $_POST["genre"];
 }

@@ -4,7 +4,7 @@ require_once "./code/functions.php";
 $message = "";
 
 // save data to database
-$conn = CustomFunctions::createConnectionToDatabase();
+$conn = Connection::getPdoInstance();
 
 $stmt = $conn->prepare("SELECT isbn,book.name,author,price, publication_date, description, page_count, binding, 
             image, language.name AS language , genre.name AS genre FROM book, language, genre WHERE language_id=language.id AND genre_id= genre.id");

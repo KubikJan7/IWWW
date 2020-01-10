@@ -30,7 +30,7 @@ if (isset($_POST["import-books"])) {
 
         <?php
 // save data to database
-        $conn = CustomFunctions::createConnectionToDatabase();
+        $conn = Connection::getPdoInstance();
         $duplicityCount = 0;
         foreach ($array as $row) {
             try {

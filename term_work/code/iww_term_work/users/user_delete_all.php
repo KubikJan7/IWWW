@@ -1,5 +1,5 @@
 ﻿<?php
-$conn = CustomFunctions::createConnectionToDatabase();
+$conn = Connection::getPdoInstance();
 
 $stmt = $conn->prepare("DELETE FROM address; ALTER TABLE address AUTO_INCREMENT = 1;");
 $stmt->execute();

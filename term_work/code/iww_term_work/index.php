@@ -3,6 +3,7 @@ ob_start();
 session_start();
 include "./config.php"; //load configurations
 require_once "./code/functions.php";
+require_once "./class/BookRepository.php";
 $cartEmpty = true;
 ?>
 <!DOCTYPE html>
@@ -41,7 +42,7 @@ $cartEmpty = true;
 </header>
 
 <section id="hero">
-    <span id="category-btn" onclick="location.href='<?= BASE_URL . "?page=book_selection"?>'" onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Kategorie</span>
+    <span id="category-btn" onclick="location.href='<?= BASE_URL . "?page=book_selection"?>'" onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Nabídka knih</span>
     <div id="search-container">
         <form action="/action_page.php">
             <input type="search" placeholder="Zadejte název knihy, autora..." name="search">
@@ -57,7 +58,7 @@ $cartEmpty = true;
     $index = 0;
     $count = count($genres);
     foreach ($genres AS $genre_row) {
-        echo("<a href=" . BASE_URL . "?genre=". str_replace(" ","_",$genre_row["name"]) . ">"
+        echo("<a href=" . BASE_URL . "?page=book_selection&genre=". $genre_row["id"] . ">"
             . $genre_row["name"] . "<i class=\"fa fa-chevron-right\"></i></a>");
 
         if($index<$count-1) //add thematic break after each entry apart from the last one
