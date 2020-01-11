@@ -16,6 +16,14 @@ class BookRepository
             WHERE language_id=language.id AND genre_id= genre.id")->fetchAll();
     }
 
+    public function getNonCzechBooks()
+    {
+        return $this->conn->query(
+            "SELECT isbn,book.name,author,price, publication_date, description, page_count, binding, 
+            image, language.name AS language , genre.name AS genre FROM book, language, genre 
+            WHERE language_id=language.id AND genre_id= genre.id AND language .name != 'Čeština'")->fetchAll();
+    }
+
     public function getImageByISBN($isbn)
     {
         $stmt = $this->conn->prepare("SELECT image FROM book WHERE isbn=:isbn");

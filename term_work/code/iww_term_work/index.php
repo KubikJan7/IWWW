@@ -42,7 +42,7 @@ $cartEmpty = true;
 </header>
 
 <section id="hero">
-    <span id="category-btn" onclick="location.href='<?= BASE_URL . "?page=book_selection"?>'" onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Nabídka knih</span>
+    <span id="category-btn" onclick="location.href='<?= BASE_URL . "?page=book_selection&genre=0"?>'" onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Nabídka knih</span>
     <div id="search-container">
         <form action="/action_page.php">
             <input type="search" placeholder="Zadejte název knihy, autora..." name="search">
