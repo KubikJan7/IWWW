@@ -5,8 +5,8 @@ $bookRepo = new BookRepository(Connection::getPdoInstance());
 if ($_GET["genre"] == 0) // all genres
 {
     $books = $bookRepo->getAllBooks();
-    if(isset($_GET["genre"]))
-        $genre = "Knihy různých žánrů";
+    if (isset($_GET["genre"]))
+        $genre = "Knihy všech žánrů";
 
 } else if ($_GET["genre"] == 5) //books written in different languages
 {
@@ -14,7 +14,8 @@ if ($_GET["genre"] == 0) // all genres
     $genre = "Cizojazyčná literatura";
 } else {
     $books = $bookRepo->getByGenre($_GET["genre"]);
-    $genre = $books[0]["genre"];
+    if (isset($books[0]))
+        $genre = $books[0]["genre"];
 }
 
 if (isset($books[0]))
@@ -28,7 +29,7 @@ foreach ($books as $row) {
   <a id="book-title" href="' . BASE_URL . '?page=book_detail&isbn=' . $row["isbn"] . '"><h3 class="cut-text" style="margin:10px 0 5px 0">' . $row["name"] . '</h3></a>
   <p>' . $row["author"] . '</p>
   <p class="price"><b class="color-green">' . $row["price"] . ' Kč </b></p>
-  <a id="book_to_cart_btn" href="' . BASE_URL . '?page=cart"> <i class="fa fa-shopping-cart"></i> Do košíku</a>
+  <a id="book_to_cart_btn" href="' . BASE_URL . '?page=cart&action=add&isbn=' . $row["isbn"] . '"> <i class="fa fa-shopping-cart"></i> Do košíku</a>
     </div>
     ';
 }

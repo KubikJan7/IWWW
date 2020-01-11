@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     }
                 }
             }
-            $successFeedback = "Uživatel byl upraven.";
+            $successFeedback = "Účet byl upraven.";
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) //checks if it's exception other_code of duplicity
             {
@@ -211,7 +211,7 @@ if (empty($errorFeedbackArray)) { //load origin data from database
 
 ?>
     <form id="custom-form" method="post">
-        <h2>Upravit uživatele</h2>
+        <h2>Upravit účet</h2>
         <?php
         if (!empty($errorFeedbackArray)) {
             echo "<b class='color-orange'>Při zadávání se vyskytly tyto chyby:</b><br>";
@@ -220,7 +220,7 @@ if (empty($errorFeedbackArray)) { //load origin data from database
             }
             echo "<br>";
         } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($successFeedback)) {
-            header("Location:" . BASE_URL . "?page=user_management" . "&action=user_update" . "&user_id=" .
+            header("Location:" . BASE_URL . "?page=" . $_GET["page"] . "&action=user_update" . "&user_id=" .
                 $_GET["user_id"] . "&message=" . "<br><b class='color-green'>$successFeedback</b><br>");
         }
         ?>

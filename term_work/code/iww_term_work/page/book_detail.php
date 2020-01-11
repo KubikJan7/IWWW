@@ -16,7 +16,7 @@ echo '
                     <!-- Book pricing -->
                 <div id="book_detail_price">
                     <span><b>'. $book["price"] .' Kč</b></span>
-                    <a id="button_orange_border" href="'. BASE_URL .'?page=cart" <i class="fa fa-shopping-cart"></i>Do košíku</a>
+                    <a id="button_orange_border" href="'. BASE_URL .'?page=cart&action=add&isbn='. $book["isbn"] .'" <i class="fa fa-shopping-cart"></i>Do košíku</a>
                 </div>
                 <p>'. $book["description"] .'</p>
                 

@@ -4,7 +4,7 @@ session_start();
 include "./config.php"; //load configurations
 require_once "./code/functions.php";
 require_once "./class/BookRepository.php";
-$cartEmpty = true;
+require_once "./class/AddressRepository.php";
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -106,7 +106,9 @@ $cartEmpty = true;
             include "./books/book_delete.php";
         else if ($_GET["action"] == "book_delete_all")
             include "./books/book_delete_all.php";
-
+        //purchase management
+        else if ($_GET["action"] == "purchase_select")
+            include "./purchases/purchase_select.php";
     }
 
     ?>
