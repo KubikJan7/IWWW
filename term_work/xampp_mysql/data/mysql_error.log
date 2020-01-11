@@ -22641,3 +22641,71 @@ Version: '10.1.37-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribut
 2020-01-03 12:50:02 20116 [Note] Server socket created on IP: '::'.
 2020-01-03 12:50:04 20116 [Note] d:\software\xampp\mysql\bin\mysqld.exe: ready for connections.
 Version: '10.1.37-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2020-01-07 13:59:12 3f60 InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2020-01-07 13:59:12 16224 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2020-01-07 13:59:12 16224 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2020-01-07 13:59:12 16224 [Note] InnoDB: The InnoDB memory heap is disabled
+2020-01-07 13:59:12 16224 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2020-01-07 13:59:12 16224 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2020-01-07 13:59:12 16224 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2020-01-07 13:59:12 16224 [Note] InnoDB: Using generic crc32 instructions
+2020-01-07 13:59:12 16224 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2020-01-07 13:59:12 16224 [Note] InnoDB: Completed initialization of buffer pool
+2020-01-07 13:59:13 16224 [Note] InnoDB: Highest supported file format is Barracuda.
+2020-01-07 13:59:13 16224 [Note] InnoDB: The log sequence number 1845738 in ibdata file do not match the log sequence number 3688400 in the ib_logfiles!
+2020-01-07 13:59:15 16224 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2020-01-07 13:59:17 16224 [Note] InnoDB: 128 rollback segment(s) are active.
+2020-01-07 13:59:17 16224 [Note] InnoDB: Waiting for purge to start
+2020-01-07 13:59:17 16224 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.41-84.1 started; log sequence number 3688400
+2020-01-07 13:59:17 18912 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2020-01-07 13:59:17 16224 [Note] Plugin 'FEEDBACK' is disabled.
+2020-01-07 13:59:18 16224 [Note] Server socket created on IP: '::'.
+2020-01-07 13:59:19 16224 [Note] d:\software\xampp\mysql\bin\mysqld.exe: ready for connections.
+Version: '10.1.37-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2020-01-08  2:01:33 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:01:33 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:07:31 8620 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:07:31 8620 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:08:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:08:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-08  2:15:49 2700 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
+2020-01-10 10:40:45 316c InnoDB: Warning: Using innodb_additional_mem_pool_size is DEPRECATED. This option may be removed in future releases, together with the option innodb_use_sys_malloc and with the InnoDB's internal memory allocator.
+2020-01-10 10:40:45 12652 [Note] InnoDB: innodb_empty_free_list_algorithm has been changed to legacy because of small buffer pool size. In order to use backoff, increase buffer pool at least up to 20MB.
+
+2020-01-10 10:40:45 12652 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+2020-01-10 10:40:45 12652 [Note] InnoDB: The InnoDB memory heap is disabled
+2020-01-10 10:40:45 12652 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2020-01-10 10:40:45 12652 [Note] InnoDB: _mm_lfence() and _mm_sfence() are used for memory barrier
+2020-01-10 10:40:45 12652 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2020-01-10 10:40:45 12652 [Note] InnoDB: Using generic crc32 instructions
+2020-01-10 10:40:45 12652 [Note] InnoDB: Initializing buffer pool, size = 16.0M
+2020-01-10 10:40:45 12652 [Note] InnoDB: Completed initialization of buffer pool
+2020-01-10 10:40:46 12652 [Note] InnoDB: Highest supported file format is Barracuda.
+2020-01-10 10:40:46 12652 [Note] InnoDB: The log sequence number 1845738 in ibdata file do not match the log sequence number 4144162 in the ib_logfiles!
+2020-01-10 10:40:48 12652 [Note] InnoDB: Restoring possible half-written data pages from the doublewrite buffer...
+2020-01-10 10:40:52 12652 [Note] InnoDB: 128 rollback segment(s) are active.
+2020-01-10 10:40:52 12652 [Note] InnoDB: Waiting for purge to start
+2020-01-10 10:40:52 12652 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.41-84.1 started; log sequence number 4144162
+2020-01-10 10:40:53 12568 [Note] InnoDB: Dumping buffer pool(s) not yet started
+2020-01-10 10:40:53 12652 [Note] Plugin 'FEEDBACK' is disabled.
+2020-01-10 10:40:53 12652 [Note] Server socket created on IP: '::'.
+2020-01-10 10:40:55 12652 [Note] d:\software\xampp\mysql\bin\mysqld.exe: ready for connections.
+Version: '10.1.37-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2020-01-11 16:03:44 13152 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'min_value' at position 3 to have type varbinary(255), found type varchar(255).
+2020-01-11 16:03:44 13152 [ERROR] Incorrect definition of table mysql.column_stats: expected column 'max_value' at position 4 to have type varbinary(255), found type varchar(255).
