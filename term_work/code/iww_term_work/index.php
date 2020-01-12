@@ -123,6 +123,13 @@ require_once "./class/UserRepository.php";
             include "./purchases/purchase_update.php";
         else if ($_GET["action"] == "purchase_delete")
             include "./purchases/purchase_delete.php";
+        //purchase items management
+        else if ($_GET["action"] == "purchase_item_insert")
+            include "./purchase_items/purchase_item_insert.php";
+        else if ($_GET["action"] == "purchase_item_update")
+            include "./purchase_items/purchase_item_update.php";
+        else if ($_GET["action"] == "purchase_item_delete")
+            include "./purchase_items/purchase_item_delete.php";
     }
 
     ?>

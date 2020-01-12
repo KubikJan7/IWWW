@@ -33,7 +33,7 @@ foreach ($purchases as $purchase) {
         $address = $primaryAddress;
 
     echo '   
-   <tr id="purchase_row" onclick="location.href=\''. BASE_URL .'?page=invoice&purchase_id='. $purchase["purchase_id"].'\'">
+   <tr id="purchase_row" onclick="location.href=\''. BASE_URL .'?page=purchase_item_management&purchase_id='. $purchase["purchase_id"].'\'">
     <td>' . $purchase["purchase_id"] . '</td >
     <td >' . $purchase["state"] . '</td > 
     <td >' . $purchase["payment"] . '</td >

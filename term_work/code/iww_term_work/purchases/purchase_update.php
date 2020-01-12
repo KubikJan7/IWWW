@@ -105,6 +105,6 @@ if (empty($errorFeedbackArray)) { //load origin data from database
     <input id="admin-input" type="email" name="email"
            pattern="[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$" value="<?= $email; ?>">
     <br>
-    <input id="custom-submit" type="submit" name="insert_book" value="Přidat">
+    <input id="custom-submit" type="submit" name="insert_book" value="Upravit">
 </form>
 
