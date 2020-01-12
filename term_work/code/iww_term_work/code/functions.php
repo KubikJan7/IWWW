@@ -50,6 +50,7 @@
 </script>
 <?php
 require_once "./class/Connection.php";
+
 class CustomFunctions
 {
     public static function getAllBookGenres()
@@ -101,6 +102,20 @@ class CustomFunctions
                 $message = "Je nám líto, při nahrávání obrázku došlo k potížím.";
             }
         return $message;
+    }
+
+    function createAcronym($text)
+    {
+        $words = explode(" ", $text);
+        $acronym = "";
+
+        foreach ($words as $w) {
+            $acronym .= strtoupper($w[0]);
+            // a letter with diacritics is considered as 2 characters: Č -> c + ˇ
+            if (mb_detect_encoding($w[0]) == "UTF-8") // ordinary letters are in ASCII
+                $acronym .= strtoupper($w[1]); // add one more character
+        }
+        return $acronym;
     }
 }
 

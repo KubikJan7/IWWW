@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $feedbackMessage = "<p><b class='color-red'>Databáze již obsahuje knihu se stejným ISBN!</b></p>";
                 array_push($errorFeedbackArray, $feedbackMessage);
             } else {
-                $feedbackMessage = "<p><b class='color-red'>Při importu nastaly potíže, zkuste to prosím později.</b></p>";
+                $feedbackMessage = "<p><b class='color-red'>Při vkládání nastaly potíže, zkuste to prosím později.</b></p>";
                 array_push($errorFeedbackArray, $feedbackMessage);
             }
         }

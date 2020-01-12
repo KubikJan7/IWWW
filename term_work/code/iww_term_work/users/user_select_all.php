@@ -50,8 +50,8 @@ foreach ($data_user as $row_user) {
     <td >' . $row_user["email"] . '</td >
     <td >' . $row_user["phone_number"] . '</td >
     <td >' . $role . '</td >
-    <td >' . $row_user["address"] . "<br> " . $row_user["city"] . " " . $row_user["zip_code"] . ", " . createAcronym($row_user["country"]) . '</td >
-    <td >' . ((isset($address)) ? ($address["address"] . "<br> " . $address["city"] . " " . $address["zip_code"] . ", " . createAcronym($address["country"])) : (" ╶ || ╴ ")) . '</td >
+    <td >' . $row_user["address"] . "<br> " . $row_user["city"] . " " . $row_user["zip_code"] . ", " . CustomFunctions::createAcronym($row_user["country"]) . '</td >
+    <td >' . ((isset($address)) ? ($address["address"] . "<br> " . $address["city"] . " " . $address["zip_code"] . ", " . CustomFunctions::createAcronym($address["country"])) : (" ╶ || ╴ ")) . '</td >
     <td>
         <a href="?page=user_management&action=user_update&user_id=' . $row_user["user_id"] . '">Upravit</a>
         <a href="?page=user_management&action=user_delete&user_id=' . $row_user["user_id"] . '">Smazat</a>
@@ -61,19 +61,6 @@ foreach ($data_user as $row_user) {
 }
 
 echo '</table>';
-function createAcronym($text)
-{
-    $words = explode(" ", $text);
-    $acronym = "";
-
-    foreach ($words as $w) {
-        $acronym .= strtoupper($w[0]);
-        // a letter with diacritics is considered as 2 characters: Č -> c + ˇ
-        if (mb_detect_encoding($w[0]) == "UTF-8") // ordinary letters are in ASCII
-            $acronym .= strtoupper($w[1]); // add one more character
-    }
-    return $acronym;
-}
 
 ?>
 

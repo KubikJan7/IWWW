@@ -5,6 +5,10 @@ include "./config.php"; //load configurations
 require_once "./code/functions.php";
 require_once "./class/BookRepository.php";
 require_once "./class/AddressRepository.php";
+require_once "./class/PurchaseRepository.php";
+require_once "./class/PurchaseBookRepository.php";
+require_once "./class/UserRepository.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -26,7 +30,10 @@ require_once "./class/AddressRepository.php";
     <nav id="nav">
 
         <?php if (!empty($_SESSION["user_id"])) { ?> <!-- Check if the user is logged in -->
-            <?php if ($_SESSION["role"] == "administrator") { ?> <!--Check if it's an admin -->
+            <?php if ($_SESSION["role"] == "administrator" || $_SESSION["role"] == "employee") { ?> <!--Check if it's an admin or employee-->
+                <a href="<?= BASE_URL . "?page=purchase_management" ?>"><i class="fa fa-dollar"></i> Správa objednávek</a>
+            <?php }
+            if ($_SESSION["role"] == "administrator") { ?> <!--Check if it's an admin -->
                 <a href="<?= BASE_URL . "?page=book_management" ?>"><i class="fa fa-book"></i> Správa knih</a>
                 <a href="<?= BASE_URL . "?page=user_management" ?>"><i class="fa fa-user"></i> Správa uživatelů</a>
             <?php } ?>
@@ -42,7 +49,8 @@ require_once "./class/AddressRepository.php";
 </header>
 
 <section id="hero">
-    <span id="category-btn" onclick="location.href='<?= BASE_URL . "?page=book_selection&genre=0"?>'" onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Nabídka knih</span>
+    <span id="category-btn" onclick="location.href='<?= BASE_URL . "?page=book_selection&genre=0" ?>'"
+          onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Nabídka knih</span>
     <div id="search-container">
         <form action="/action_page.php">
             <input type="search" placeholder="Zadejte název knihy, autora..." name="search">
@@ -58,10 +66,10 @@ require_once "./class/AddressRepository.php";
     $index = 0;
     $count = count($genres);
     foreach ($genres AS $genre_row) {
-        echo("<a href=" . BASE_URL . "?page=book_selection&genre=". $genre_row["id"] . ">"
+        echo("<a href=" . BASE_URL . "?page=book_selection&genre=" . $genre_row["id"] . ">"
             . $genre_row["name"] . "<i class=\"fa fa-chevron-right\"></i></a>");
 
-        if($index<$count-1) //add thematic break after each entry apart from the last one
+        if ($index < $count - 1) //add thematic break after each entry apart from the last one
             echo "<hr>";
         $index++;
     }
@@ -109,6 +117,12 @@ require_once "./class/AddressRepository.php";
         //purchase management
         else if ($_GET["action"] == "purchase_select")
             include "./purchases/purchase_select.php";
+        else if ($_GET["action"] == "purchase_insert")
+            include "./purchases/purchase_insert.php";
+        else if ($_GET["action"] == "purchase_update")
+            include "./purchases/purchase_update.php";
+        else if ($_GET["action"] == "purchase_delete")
+            include "./purchases/purchase_delete.php";
     }
 
     ?>
@@ -121,9 +135,10 @@ require_once "./class/AddressRepository.php";
         </p>
     </div>
     <div>
-        <p><a id="export-btn" onclick="return confirm('Informace o knihách budou staženy ve formátu JSON. Přejete si pokračovat?')"
-              href="<?= BASE_URL . "?action=book_export&message=<p><b class='color-green'>Soubor byl stažen.</b></p>"?>"
-              >Export knih</a></p>
+        <p><a id="export-btn"
+              onclick="return confirm('Informace o knihách budou staženy ve formátu JSON. Přejete si pokračovat?')"
+              href="<?= BASE_URL . "?action=book_export&message=<p><b class='color-green'>Soubor byl stažen.</b></p>" ?>"
+            >Export knih</a></p>
     </div>
 </footer>
 </body>

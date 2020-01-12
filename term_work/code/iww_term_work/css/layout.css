@@ -715,3 +715,11 @@ outline: none;
     color: #F49268;
     transition: 0.5s;
 }
+
+/* Addresses in invoice*/
+#address_column{
+    display: flex;
+    flex-direction: column;
+    margin: 0 30px 40px 50px;
+    text-align: left;
+}
