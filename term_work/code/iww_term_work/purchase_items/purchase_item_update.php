@@ -23,6 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $bookRepo = new BookRepository($conn);
             $book = $bookRepo->getByISBN($_POST["isbn"]);
 
+            $purchaseItemsRepo = new PurchaseBookRepository($conn);
+            $items = $purchaseItemsRepo->getItemsByPurchaseIdAndISBN($_GET["purchase_id"], $_POST["isbn"]);
+            if(count($items)>0&&$_GET["item_id"]!=$items[0]["id"])
+                throw new LogicException();
+
             if (empty($book))
                 throw new UnexpectedValueException();
 
@@ -39,6 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         } catch (UnexpectedValueException $e) {
             $feedbackMessage = "<p><b class='color-red'>Zadaný kód ISBN se nenachází v databázi.</b></p>";
+            array_push($errorFeedbackArray, $feedbackMessage);
+        } catch (LogicException $e) {
+            $feedbackMessage = "<p><b class='color-red'>V databázi se již nachází kniha se zadaným kódem ISBN.</b></p>";
             array_push($errorFeedbackArray, $feedbackMessage);
         } catch (Exception $e) {
             $feedbackMessage = "<p><b class='color-red'>Při přidávání nastaly potíže, zkuste to prosím později.</b></p>";

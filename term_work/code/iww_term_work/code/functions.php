@@ -47,6 +47,22 @@
         document.getElementById("category-menu").style.paddingBottom = "0";
         document.getElementById("category-menu").style.boxShadow = "none";
     }
+
+    let input;
+    function searchBook() {
+        input=input.toLowerCase();
+        let x = document.getElementsByClassName('card');
+
+        for (let i = 0; i < x.length; i++) {
+            if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                x[i].style.display="none";
+            }
+            else {
+                x[i].style.display="block";
+            }
+        }
+    }
+
 </script>
 <?php
 require_once "./class/Connection.php";

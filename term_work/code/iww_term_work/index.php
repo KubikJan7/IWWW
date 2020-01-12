@@ -9,6 +9,9 @@ require_once "./class/PurchaseRepository.php";
 require_once "./class/PurchaseBookRepository.php";
 require_once "./class/UserRepository.php";
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    header("Location:" . BASE_URL . "?page=book_selection&genre=0&search=" . $_POST["search"]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -52,8 +55,8 @@ require_once "./class/UserRepository.php";
     <span id="category-btn" onclick="location.href='<?= BASE_URL . "?page=book_selection&genre=0" ?>'"
           onmouseover="openNav()" onmouseleave="closeNav()">&#9776; Nabídka knih</span>
     <div id="search-container">
-        <form action="/action_page.php">
-            <input type="search" placeholder="Zadejte název knihy, autora..." name="search">
+        <form method="post">
+            <input id="search-bar" type="search" placeholder="Zadejte název knihy, autora..." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>

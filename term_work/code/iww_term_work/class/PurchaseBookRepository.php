@@ -31,6 +31,15 @@ class PurchaseBookRepository
         return $stmt->fetch();
     }
 
+    public function getItemsByPurchaseIdAndISBN($purchase_id, $book_isbn)
+    {
+        $stmt = $this->conn->prepare("SELECT purchase_book.id, price, quantity, book_isbn FROM purchase_book WHERE purchase_id = :purchase_id AND book_isbn = :isbn");
+        $stmt->bindParam(':purchase_id', $purchase_id);
+        $stmt->bindParam(':isbn', $book_isbn);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function getPurchasedItemById($purchase_item_id)
     {
         $stmt = $this->conn->prepare("SELECT purchase_book.id, price, quantity, book_isbn FROM purchase_book WHERE  purchase_book.id = :purchase_item_id");
