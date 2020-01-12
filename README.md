@@ -3,9 +3,9 @@
 Požadavky na funkčnost aplikace:
 - [ ] Veškeré číselníkové tabulky musí být editovatelné (CRUD)
 - [x] Aplikace musí obsahovat správu uživatelů
-- [ ] Nutná aplikační logika
-- [ ] Bude vycházet z aktivity diagramu – mělo by se jednat o aktivitu, která je jádrem bussinessu (u eshopu se jedná o provedení objednávky, reklamace, vrácení zboží atp.; u rezervačního systému se jedná o proces rezervace, zrušení atd…) – přihlášení, odhlášení a registrace není vhodná aktivita; vyplnění jednoho formuláře také není aplikační logika.
-- [ ] Aplikace by měla pokrývat případy užití z use case diagramu
+- [x] Nutná aplikační logika
+- [x] Bude vycházet z aktivity diagramu – mělo by se jednat o aktivitu, která je jádrem bussinessu (u eshopu se jedná o provedení objednávky, reklamace, vrácení zboží atp.; u rezervačního systému se jedná o proces rezervace, zrušení atd…) – přihlášení, odhlášení a registrace není vhodná aktivita; vyplnění jednoho formuláře také není aplikační logika.
+- [x] Aplikace by měla pokrývat případy užití z use case diagramu
 - [x] Podpora zabezpečeného přístupu (přihlášení do aplikace, role, atp.)
 - [x] Minimálně 3 uživatelské role (neregistrovaný, registrovaný, administrátor)
 - [x] Aplikace musí umožnit export dat do JSONu/XML – exportovaná data se musí nabídnout uživateli ke stažení (opět data, která jsou jádrem bussinessu – u eshopu se může jednat o export zboží)
