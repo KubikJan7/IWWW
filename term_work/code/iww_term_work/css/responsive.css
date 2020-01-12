@@ -1,0 +1,71 @@
+@media (max-width: 1200px) {
+
+    header {
+        justify-content: space-between;
+        height: auto;
+    }
+
+    #header-logo, header nav a {
+        display: none;
+    }
+
+    .nav-responsive a {
+        display: block;
+    }
+
+    #header-web-title {
+        display: block;
+        align-self: flex-start;
+    }
+
+    #header-web-title a{
+        left:auto;
+    }
+
+    #nav-hamburger-icon {
+        width: 60px;
+        display: block;
+        align-self: flex-start;
+    }
+
+    #search-container {
+        width: auto;
+    }
+
+    #search-container input[type=search] {
+        width: auto;
+    }
+
+    #search-container button {
+        width: auto;
+    }
+
+    .card {
+        width: 100%;
+        text-align: center;
+    }
+
+    #hero {
+        width: 100%;
+        height: auto;
+    }
+
+    #hero a {
+        right: 1%;
+    }
+
+    #category-btn {
+        left: auto;
+    }
+
+    .full-width-wrapper, main {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    footer section {
+        width: 100%;
+        margin: 25px;
+    }
+}
+

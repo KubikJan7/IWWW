@@ -43,6 +43,10 @@ header nav a:hover {
     transition: 0.5s;
 }
 
+#nav-hamburger-icon {
+    display: none;
+}
+
 #header-web-title a {
     color: white;
     font-size: 30px;

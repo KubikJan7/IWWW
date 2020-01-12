@@ -1,4 +1,4 @@
-<div class="flex-wrap">
+<div class="flex-wrap" style="justify-content: space-between">
     <section>
         <h4>Adresa - hlavní prodejna</h4>
         <address>

@@ -1,0 +1,20 @@
+@media print {
+    nav {
+        display: none !important;
+    }
+
+    header {
+        display: none !important;
+    }
+
+    footer {
+        display: none !important;
+    }
+
+    #hero{
+        display: none !important;
+    }
+    /*img{
+        display: none !important;
+    }*/
+}

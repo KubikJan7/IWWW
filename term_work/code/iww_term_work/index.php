@@ -19,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css"  href="./css/print.css" />
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -49,6 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <?php } ?>
         <a href="<?= BASE_URL . "?page=contact" ?>"><i class="fa fa-map-marker"></i> Kontakt</a>
     </nav>
+    <img id="nav-hamburger-icon" src="./images/hamburger-menu-icon.png"
+         onclick="showHamburgerMenu()"/>
 </header>
 
 <section id="hero">

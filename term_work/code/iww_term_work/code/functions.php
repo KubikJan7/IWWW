@@ -63,6 +63,15 @@
         }
     }
 
+    function showHamburgerMenu() {
+        var element = document.getElementById("nav");
+        if (element.className === "") {
+            element.className = "nav-responsive";
+        } else {
+            element.className = "";
+        }
+    }
+
 </script>
 <?php
 require_once "./class/Connection.php";
@@ -120,7 +129,7 @@ class CustomFunctions
         return $message;
     }
 
-    function createAcronym($text)
+    public static function createAcronym($text)
     {
         $words = explode(" ", $text);
         $acronym = "";
