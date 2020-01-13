@@ -64,7 +64,7 @@ if (isset($_POST["search-books"])) {
             <button type="submit" name="search-books"><i class="fa fa-search"></i></button>
         </form>
     </div>
-    <a href="<?= BASE_URL . "?page=cart" ?>"><i class="fa fa-shopping-cart"></i> Košík</a>
+    <a href="<?= BASE_URL . "?page=cart" ?>"><i class="fa fa-shopping-cart"></i> Košík (<?= count((isset($_SESSION["cart"]))?$_SESSION["cart"]:"") ?>)</a>
 </section>
 
 <div id="category-menu" onmouseover="openNav()" onmouseleave="closeNav()">
