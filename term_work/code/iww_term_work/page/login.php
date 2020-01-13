@@ -24,7 +24,7 @@ if (!empty($_POST) && !empty($_POST["loginMail"]) && !empty($_POST["loginPasswor
         $_SESSION["last_name"] = $user["last_name"];
         $_SESSION["email"] = $user["email"];
         $_SESSION["role"] = $user["role"];
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL . "?message=". "<br><b class='color-green'>Byl jste přihlášen.</b><br>");
     }
 
 } else if (!empty($_POST)) {
