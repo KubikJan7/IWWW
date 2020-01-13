@@ -10,12 +10,12 @@ Požadavky na funkčnost aplikace:
 - [x] Minimálně 3 uživatelské role (neregistrovaný, registrovaný, administrátor)
 - [x] Aplikace musí umožnit export dat do JSONu/XML – exportovaná data se musí nabídnout uživateli ke stažení (opět data, která jsou jádrem bussinessu – u eshopu se může jednat o export zboží)
 - [x] Aplikace musí umožnit import JSON/XML souboru (stačí do jedné tabulky)
-- [ ] Vybraná stránka musí být optimalizovaná pro tisk (u eshopu se může jednat například o seznam objednávek, nebo fakturu)
+- [x] Vybraná stránka musí být optimalizovaná pro tisk (u eshopu se může jednat například o seznam objednávek, nebo fakturu)
 
 ## Další požadavky:
 - [ ] Validní HTML kód
 - [x] Sémantický – využití tagů nav, footer, header, article, section
-- [ ] Responzivní – přizbůsobení pro mobilní zařízení a tiskárnu
+- [x] Responzivní – přizbůsobení pro mobilní zařízení a tiskárnu
 - [x] CSS formátování – nepoužívat CSS framework
 - [x] U veškerého převzatého kódu uveďte zdroj
 - [ ] Veškerý použitý kód si musíte obhájit (i ten, který jste nepsali)
@@ -23,5 +23,5 @@ Požadavky na funkčnost aplikace:
 
 ## Doporučení:
 - [x] Alespoň 7 databázových tabulek (minimálně jedna M:N)
-- [ ] Pro kreslení UML diagramů můžete využít online bezplatnou aplikaci draw.io
+- [x] Pro kreslení UML diagramů můžete využít online bezplatnou aplikaci draw.io
 

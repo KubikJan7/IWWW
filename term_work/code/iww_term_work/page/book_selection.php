@@ -1,6 +1,4 @@
-<?php
-require_once "./code/functions.php";
-
+<?php require_once "./code/functions.php";
 $imgLink = BASE_URL . "?page=book_detail";
 $bookRepo = new BookRepository(Connection::getPdoInstance());
 
@@ -37,9 +35,7 @@ foreach ($books as $row) {
         <a id="book_to_cart_btn" href="' . BASE_URL . '?page=cart&action=add&isbn=' . $row["isbn"] . '"> <i class="fa fa-shopping-cart"></i> Do košíku</a>
     </div>
     ';
-}
-
-echo '</div>';
+} echo '</div>';
 
 if(!empty($_GET["search"]))
     echo '<script type="text/javascript">

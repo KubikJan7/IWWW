@@ -77,5 +77,44 @@
     "image": "metro_2033_cs.jpg",
     "language": "Čeština",
     "genre": "Sci-fi"
+  },
+  {
+    "isbn": "9978-7390-2228-3",
+    "name": "Proměna a jiné povídky",
+    "author": "Franz Kafka",
+    "price": 250,
+    "publication_date": "2014-09-15",
+    "description": "Mladý a pracovitý obchodní cestující Řehoř Samsa, na jehož platu závisí fungování celé rodiny, se jednoho dne probudí a zjistí, že se změnil v jakýsi odporný hmyz a místo normálních slov se mu z úst linou jen zvláštní zvuky. Bohužel jeho mysl zůstala lidská a tak musí postupně sledovat, jak se mu jeho nejbližší vzdalují... Kromě Proměny, která je asi nejslavnější povídkou Franze Kafky a inspirovala filmaře k natočení věhlasného hororu Moucha, kniha obsahuje i další neméně zdařilé příběhy, jako například Ortel, V kárném táboře a původně samostatnou sbírku Drobné povídky otci, kde najdeme i známé vyprávění Venkovský lékař.",
+    "page_count": 240,
+    "binding": "Pevná",
+    "image": "promena_cs.jpg",
+    "language": "Čeština",
+    "genre": "Česká beletrie"
+  },
+  {
+    "isbn": "9788-0207-1778-8",
+    "name": "Spalovač mrtvol",
+    "author": "Ladislav Fuks",
+    "price": 199,
+    "publication_date": "2017-08-17",
+    "description": "Slavný příběh o spalovači mrtvol, podivínském Karlu Kopfrkinglovi, je podobenstvím o patologickém vývoji malého člověka k přijetí zla. Filmové zpracování z roku 1968 patří ke zlatému fondu české kinematografie.",
+    "page_count": 144,
+    "binding": "Pevná",
+    "image": "spalovac_mrtvol_cs.jpg",
+    "language": "Čeština",
+    "genre": "Česká beletrie"
+  },
+  {
+    "isbn": "9788-0207-1621-7",
+    "name": "Stařec a moře",
+    "author": "Ernest Hemingway",
+    "price": 199,
+    "publication_date": "2015-03-01",
+    "description": "Ernest Hemingway obdržel Nobelovu cenu „za mistrovství v umění vyprávět, naposledy prokázané v díle Stařec a moře, a za to, jak ovlivnil literární styl své doby.“ Hemingwayova novela se brzy po svém prvním vydání roku 1952 stala jedním ze zásadních děl moderní americké prózy. Z příběhu rybáře, jenž se v nevelkém člunu pouští do zápasu s obrovským marlínem a potom do posledních sil bojuje s přesilou žraloků, kteří napadnou jeho úlovek, dokázal spisovatel na malém prostoru vytvořit existenciální drama o hrdinství, vůli a vnitřní síle.",
+    "page_count": 112,
+    "binding": "Pevná",
+    "image": "starec_a_more_cs.jpg",
+    "language": "Čeština",
+    "genre": "Světová beletrie"
   }
 ]

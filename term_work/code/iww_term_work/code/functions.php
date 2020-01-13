@@ -48,6 +48,12 @@
         document.getElementById("category-menu").style.boxShadow = "none";
     }
 
+    //***************************************************************************************
+    //*    Title: Search Bar using HTML, CSS and JavaScript
+    //*    Author: Kartikaybhutani
+    //*    Date: 2020
+    //*    Availability: https://www.geeksforgeeks.org/search-bar-using-html-css-and-javascript/
+    //****************************************************************************************
     let input;
     function searchBook() {
         input=input.toLowerCase();
@@ -62,7 +68,11 @@
             }
         }
     }
-
+    /*
+       * ***************************************************************************************
+       * End of quoted code
+       * ***************************************************************************************
+    */
     function showHamburgerMenu() {
         var element = document.getElementById("nav");
         if (element.className === "") {

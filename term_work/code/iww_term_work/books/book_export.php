@@ -7,7 +7,8 @@ $message = "";
 $conn = Connection::getPdoInstance();
 
 $stmt = $conn->prepare("SELECT isbn,book.name,author,price, publication_date, description, page_count, binding, 
-            image, language.name AS language , genre.name AS genre FROM book, language, genre WHERE language_id=language.id AND genre_id= genre.id");
+            image, language.name AS language , genre.name AS genre FROM book, language, genre WHERE language_id=language.id 
+            AND genre_id= genre.id");
 $stmt->execute();
 $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
