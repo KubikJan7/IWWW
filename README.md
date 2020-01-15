@@ -13,12 +13,12 @@ Požadavky na funkčnost aplikace:
 - [x] Vybraná stránka musí být optimalizovaná pro tisk (u eshopu se může jednat například o seznam objednávek, nebo fakturu)
 
 ## Další požadavky:
-- [ ] Validní HTML kód
+- [x] Validní HTML kód
 - [x] Sémantický – využití tagů nav, footer, header, article, section
 - [x] Responzivní – přizbůsobení pro mobilní zařízení a tiskárnu
 - [x] CSS formátování – nepoužívat CSS framework
 - [x] U veškerého převzatého kódu uveďte zdroj
-- [ ] Veškerý použitý kód si musíte obhájit (i ten, který jste nepsali)
+- [x] Veškerý použitý kód si musíte obhájit (i ten, který jste nepsali)
 - [x] Minimálně jedna relace M:N
 
 ## Doporučení:
